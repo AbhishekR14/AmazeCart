@@ -22,130 +22,129 @@ img{
     overflow: clip;
 }
 @media (min-width: 0px) and (max-width: 600px){
-.amazon-pc-logo{
-    display: none;
-}
-.amazon-mobile-logo{
-    margin: none;
-    height: 50px;
-    width: 40px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-color: rgb(19,25,33);
-    border-style: solid;
-    border-width: 1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.amazon-mobile-logo img{
-    height: 32px;
+    .amazon-pc-logo{
+        display: none;
+    }
+    .amazon-mobile-logo{
+        margin: none;
+        height: 50px;
+        width: 40px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-color: rgb(19,25,33);
+        border-style: solid;
+        border-width: 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .amazon-mobile-logo img{
+        height: 32px;
 
-}
-.amazon-mobile-logo:hover{
-    cursor: pointer;
-    border-color: white;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 4px;
-}
-.amazon-logo{
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    max-width: 60px;
-}
+    }
+    .amazon-mobile-logo:hover{
+        cursor: pointer;
+        border-color: white;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 4px;
+    }
+    .amazon-logo{
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        max-width: 60px;
+    }
 
-.orders-and-cart{
-    display: none;
-}
-.orders-and-cart-mobile{
-    width: 50px;
-    display: flex;
-    justify-content: center;
-}
-.orders-and-cart-mobile:hover{
-    cursor: pointer;
-}
-#list-items {
-    display: none;
- }
- .return-orders-text-dropdown{
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700; 
-    background-color: rgb(19,25,33);
-    color: white;
-    position: fixed;
-    text-decoration: none;
-    top: 60px;
-    right: 0px;
-    left: 0px;
-    height: 45px;
- }
- .cart-text-dropdown{
-    font-size: 15px;
-    font-weight: 700; 
-    background-color: rgb(19,25,33);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    text-decoration: none;
-    top: 105px;
-    right: 0px;
-    left: 0px;
-    height: 45px;
- }
-#list-items a:hover{
-    background-color: rgb(39, 52, 68);
-}
+    .orders-and-cart{
+        display: none;
+    }
+    .orders-and-cart-mobile{
+        width: 50px;
+        display: flex;
+        justify-content: center;
+    }
+    .orders-and-cart-mobile:hover{
+        cursor: pointer;
+    }
+    #list-items {
+        display: none;
+    }
+    .return-orders-text-dropdown{
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700; 
+        background-color: rgb(19,25,33);
+        color: white;
+        position: fixed;
+        text-decoration: none;
+        top: 60px;
+        right: 0px;
+        left: 0px;
+        height: 45px;
+    }
+    .cart-text-dropdown{
+        font-size: 15px;
+        font-weight: 700; 
+        background-color: rgb(19,25,33);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        text-decoration: none;
+        top: 105px;
+        right: 0px;
+        left: 0px;
+        height: 45px;
+    }
+    #list-items a:hover{
+        background-color: rgb(39, 52, 68);
+    }
 }
 @media (min-width: 600px) and (max-width: 2500px){
-.amazon-mobile-logo{
-    display: none;
+    .amazon-mobile-logo{
+        display: none;
+    }
+    .amazon-logo{
+        display: flex;
+        flex: 1;
+        padding-left: 25px;
+    }
+    .amazon-pc-logo{
+        margin: none;
+        height: 50px;
+        width: 110px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-color: rgb(19,25,33);
+        border-style: solid;
+        border-width: 1px;
+    }
+    .amazon-pc-logo img{
+        width: 100px;
+        margin: 10px 0px 0px 5px;
+    }
+    .amazon-pc-logo:hover{
+        cursor: pointer;
+        border-color: white;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 4px;
+    }
+    .orders-and-cart{
+        display: flex;
+        flex: 1;
+        padding-right: 15px;
+        padding-left: 15px;
+        justify-content: flex-end;
+    }
+    .orders-and-cart-mobile{
+        display: none;
+    }
 }
-.amazon-logo{
-    display: flex;
-    flex: 1;
-    padding-left: 25px;
-}
-.amazon-pc-logo{
-    margin: none;
-    height: 50px;
-    width: 110px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-color: rgb(19,25,33);
-    border-style: solid;
-    border-width: 1px;
-}
-.amazon-pc-logo img{
-    width: 100px;
-    margin: 10px 0px 0px 5px;
-}
-.amazon-pc-logo:hover{
-    cursor: pointer;
-    border-color: white;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 4px;
-}
-.orders-and-cart{
-    display: flex;
-    flex: 1;
-    padding-right: 15px;
-    padding-left: 15px;
-    justify-content: flex-end;
-}
-.orders-and-cart-mobile{
-    display: none;
-}
-}
-
 .search-bar-div{
     display: flex;
     flex:1;
@@ -270,12 +269,12 @@ img{
         display: grid;
         grid-template-columns: repeat(7, 1fr);
     }
-    }
-@media (min-width: 1500px)and (max-width: 1800px){
-.products{
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
 }
+@media (min-width: 1500px)and (max-width: 1800px){
+    .products{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+    }
 }
 @media (min-width: 1200px) and (max-width: 1500px){
     .products{
