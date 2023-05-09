@@ -17,12 +17,37 @@ header{
     align-items: center;
     justify-content: space-between;
 }
+img{
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
 @media (min-width: 0px) and (max-width: 600px){
 .amazon-pc-logo{
     display: none;
 }
 .amazon-mobile-logo{
-    height: 30px;
+    margin: none;
+    height: 50px;
+    width: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-color: rgb(19,25,33);
+    border-style: solid;
+    border-width: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.amazon-mobile-logo img{
+    height: 32px;
+
+}
+.amazon-mobile-logo:hover{
+    cursor: pointer;
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
 }
 .amazon-logo{
     display: flex;
@@ -30,6 +55,7 @@ header{
     justify-content: center;
     max-width: 60px;
 }
+
 .orders-and-cart{
     display: none;
 }
@@ -86,7 +112,27 @@ header{
     display: flex;
     flex: 1;
     padding-left: 25px;
-    padding-top: 8px;
+}
+.amazon-pc-logo{
+    margin: none;
+    height: 50px;
+    width: 110px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-color: rgb(19,25,33);
+    border-style: solid;
+    border-width: 1px;
+}
+.amazon-pc-logo img{
+    width: 100px;
+    margin: 10px 0px 0px 5px;
+}
+.amazon-pc-logo:hover{
+    cursor: pointer;
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
 }
 .orders-and-cart{
     display: flex;
@@ -209,6 +255,15 @@ header{
 .product-img{
     margin-bottom: 20px;
     padding-left: 10px;
+    height: 180px;
+    width: 202px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.product-img img{
+    max-width: 100%;
+    max-height: 100%;
 }
 @media (min-width: 1800px){
     .products{
@@ -278,4 +333,41 @@ header{
 .product-cost{
     font-weight: 700;
     margin-bottom: 10px;
+}
+.no-items-picked{
+    margin-bottom: 17px;
+}
+.no-items-picked-button{
+    background-color: rgb(240,240,240);
+    font-size: 15px;
+    height: 30px;
+    width: 50px;
+    padding: 3px 5px;
+    border-radius: 8px;
+    border-color: rgb(212, 211, 211);
+    border-width: 1px;
+    box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+    cursor: pointer;
+}
+.add-to-cart{
+    display: flex;
+}
+.add-to-cart-button{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    height: 34px;
+    align-items: center;
+    background-color: rgb(255,216,20);
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+    color: rgb(33, 33, 33);
+}
+.add-to-cart-button:hover{
+    cursor: pointer;
+    background-color: rgb(245, 207, 20);
+}
+.spacer-div{
+    height: 140px;
 }

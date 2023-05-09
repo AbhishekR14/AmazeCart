@@ -12,8 +12,12 @@
     <body>
         <header>
             <div class="amazon-logo">
-                <img class="amazon-pc-logo" style="width: 100px;"src="Pictures/amazon-logo-white.png">
-                <img class="amazon-mobile-logo"src="Pictures/amazon-mobile-logo-white.png">
+                <a href="." class="amazon-pc-logo">
+                    <img src="Pictures/amazon-logo-white.png">
+                </a>
+                <a href="." class="amazon-mobile-logo">
+                    <img src="Pictures/amazon-mobile-logo-white.png">
+                </a>                
             </div>
             <div class="search-bar-div">
                 <input class="search-bar" type="text" placeholder="Search ">
@@ -22,7 +26,7 @@
                 </button>
             </div>
             <div class="orders-and-cart">
-                <div>
+                <a href=".">
                     <button class="return-orders-button">
                         <span class="return-text">
                             Returns
@@ -31,8 +35,8 @@
                             & Orders
                         </span>
                     </button>
-                </div>
-                <div>
+                </a>
+                <a href=".">
                     <button class="cart-button">
                         <img src="Pictures/cart-icon.png" class="cart-icon">
                         <span class="cart-text">  
@@ -42,20 +46,21 @@
                             0
                         </span>
                     </button>
-                </div>
+                </a>
             </div>
             <div class="orders-and-cart-mobile">
                 <img src="Pictures/hamburger-menu.png" onclick="show_hide_orders_cart()">
                 <div id="list-items">
-                    <a class="return-orders-text-dropdown" href="#"> Returns & Orders </a>
-                    <a class="cart-text-dropdown" href="#"> Cart () </a>
+                    <a class="return-orders-text-dropdown" href="."> Returns & Orders </a>
+                    <a class="cart-text-dropdown" href="."> Cart () </a>
+                </div>
             </div>
         </header>
         <main>
             <div class="products">
                 <div class="element">
                     <div class="product-img">
-                        <img style="width:100%;" src="Pictures/sweatshirt1.jpg">
+                        <img src="Pictures/sweatshirt1.jpg">
                     </div>
                     <div class="product-name limit-to-2-lines">
                         Adults Plain Black Cotton Sweatshirt
@@ -70,7 +75,7 @@
                         ₹ 633
                     </div>
                     <div class="no-items-picked">
-                        <select>
+                        <select class="no-items-picked-button">
                             <option selected value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -82,6 +87,45 @@
                             <option value="9">9</option>
                             <option value="10">10</option>
                         </select>
+                    </div>
+                    <div class="spacer-div"></div>
+                    <div class="add-to-cart">
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="element">
+                    <div class="product-img">
+                        <img src="Pictures/round-sunglasses-black.jpg">
+                    </div>
+                    <div class="product-name limit-to-2-lines">
+                        Round Sunglasses
+                    </div>
+                    <div class="stars-rating">
+                        <img style="width: 100px;" src="Pictures/Ratings/rating-45.png">
+                        <div class="number-of-ratings">
+                            30
+                        </div>
+                    </div>
+                    <div class="product-cost">
+                        ₹ 1250
+                    </div>
+                    <div class="no-items-picked">
+                        <select class="no-items-picked-button">
+                            <option selected value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                    <div class="spacer-div"></div>
+                    <div class="add-to-cart">
+                        <button class="add-to-cart-button">Add to Cart</button>
                     </div>
                 </div>
             </div>
