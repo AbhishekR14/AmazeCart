@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Orders</title>
+        <!-- For responsive design -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        <!--Custom Stylesheets-->
+        <link rel="stylesheet" href="Styles/orders.css">
+    </head>
+    <body>
+        <header>
+            <div class="amazon-logo">
+                <a href="." class="amazon-pc-logo">
+                    <img src="Pictures/amazon-logo-white.png">
+                </a>
+                <a href="." class="amazon-mobile-logo">
+                    <img src="Pictures/amazon-mobile-logo-white.png">
+                </a>                
+            </div>
+            <div class="search-bar-div">
+                <input class="search-bar" type="text" placeholder="Search ">
+                <button class="search-bar-button">
+                    <img src="Pictures/search-icon.png">
+                </button>
+            </div>
+            <div class="orders-and-cart">
+                <a href="/orders.html">
+                    <button class="return-orders-button">
+                        <span class="return-text">
+                            Returns
+                        </span> 
+                        <span class="orders-text">  
+                            & Orders
+                        </span>
+                    </button>
+                </a>
+                <a href="/cart.html">
+                    <button class="cart-button">
+                        <img src="Pictures/cart-icon.png" class="cart-icon">
+                        <span class="cart-text">  
+                            Cart
+                        </span>
+                        <span class="cart-value">
+                            0
+                        </span>
+                    </button>
+                </a>
+            </div>
+            <div class="orders-and-cart-mobile">
+                <img src="Pictures/hamburger-menu.png" onclick="show_hide_orders_cart()">
+                <div id="list-items">
+                    <a class="return-orders-text-dropdown" href="/orders.html"> Returns & Orders </a>
+                    <a class="cart-text-dropdown" href="/cart.html"> Cart () </a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="page-title">Your Orders</div>
+            <div class="orders-container">
+                <div class="orders-container-header">
+                    <div class="orders-container-left">
+                        <div class="order-date">
+                            <div class="order-header-title">
+                                Order Placed:
+                            </div>
+                            <div class="order-header-info">
+                                August 12
+                            </div>
+                        </div>
+                        <div class="order-cost">
+                            <div class="order-header-title">
+                                Total:
+                            </div>
+                            <div class="order-header-info">
+                                ₹ 1250
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-id">
+                        <div class="order-header-title">
+                            Order ID:
+                        </div>
+                        <div class="order-header-info">
+                            27cba69d-4c3d-4098-b42d-ac7fa62b7664
+                        </div>
+                    </div>
+                </div>
+                <div class="order-details-grid">
+                    <div class="product-image-container">
+                        <img src="Pictures/Products/round-sunglasses-black.jpg">
+                      </div>
+                      <div class="product-details">
+                        <div class="product-name">
+                            Round Sunglasses
+                        </div>
+                        <div class="product-delivery-date">
+                            Arriving on: August 15
+                        </div>
+                        <div class="product-quantity">
+                            Quantity: 1
+                        </div>
+                        <button class="buy-again-button button-primary">
+                          <img class="buy-again-icon" src="Pictures/buy-again.png">
+                          <span class="buy-again-message">Buy it again</span>
+                        </button>
+                      </div>
+                      <div class="product-actions">
+                        <a href="/tracking.html">
+                          <button class="track-package-button button-secondary">
+                            Track package
+                          </button>
+                        </a>
+                      </div>
+                </div>
+            </div>
+        </main>
+        <script>
+            function show_hide_orders_cart(){
+                var click = document.getElementById("list-items");
+                if (click.style.display === "none") 
+                {
+                    click.style.display = "block";
+                } else 
+                {
+                    click.style.display = "none";
+                }
+            }
+        </script>
+    </body>
+</html>
