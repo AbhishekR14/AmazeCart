@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tracking</title>
+        <!-- For responsive design -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        <!--Custom Stylesheets-->
+        <link rel="stylesheet" href="Styles/tracking.css">
+    </head>
+    <body>
+        <header>
+            <div class="amazon-logo">
+                <a href="." class="amazon-pc-logo">
+                    <img src="Pictures/amazon-logo-white.png">
+                </a>
+                <a href="." class="amazon-mobile-logo">
+                    <img src="Pictures/amazon-mobile-logo-white.png">
+                </a>                
+            </div>
+            <div class="search-bar-div">
+                <input class="search-bar" type="text" placeholder="Search ">
+                <button class="search-bar-button">
+                    <img src="Pictures/search-icon.png">
+                </button>
+            </div>
+            <div class="orders-and-cart">
+                <a href="orders.html">
+                    <button class="return-orders-button">
+                        <span class="return-text">
+                            Returns
+                        </span> 
+                        <span class="orders-text">  
+                            & Orders
+                        </span>
+                    </button>
+                </a>
+                <a href="cart.html">
+                    <button class="cart-button">
+                        <img src="Pictures/cart-icon.png" class="cart-icon">
+                        <span class="cart-text">  
+                            Cart
+                        </span>
+                        <span class="cart-value">
+                            0
+                        </span>
+                    </button>
+                </a>
+            </div>
+            <div class="orders-and-cart-mobile">
+                <img src="Pictures/hamburger-menu.png" onclick="show_hide_orders_cart()">
+                <div id="list-items">
+                    <a class="return-orders-text-dropdown" href="orders.html"> Returns & Orders </a>
+                    <a class="cart-text-dropdown" href="cart.html"> Cart () </a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="order-tracking">
+                <a class="back-to-orders-link link-primary" href="orders.html">
+                    View all orders
+                </a>
+                <div class="delivery-date">
+                    Arriving on Monday, June 13
+                </div>
+                <div class="product-info">
+                    Black and Gray Athletic Cotton Socks - 6 Pairs
+                </div>
+                <div class="product-info">
+                    Quantity: 1
+                </div>
+                <img class="product-image" src="Pictures/Products/athletic-cotton-socks-6-pairs.jpg">
+                <div class="progress-labels-container">
+                    <div class="progress-label">
+                        Preparing
+                    </div>
+                    <div class="progress-label current-status">
+                        Shipped
+                    </div>
+                    <div class="progress-label">
+                        Delivered
+                    </div>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+        </main>
+        <script>
+            function show_hide_orders_cart(){
+                var click = document.getElementById("list-items");
+                if (click.style.display === "none") 
+                {
+                    click.style.display = "block";
+                } else 
+                {
+                    click.style.display = "none";
+                }
+            }
+        </script>
+    </body>
+</html>
