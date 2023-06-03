@@ -252,13 +252,11 @@ img{
     flex-direction: column;
 }
 .product-img{
-    margin-bottom: 20px;
-    padding-left: 10px;
-    height: 180px;
-    width: 202px;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 180px;
+    margin-bottom: 20px;
 }
 .product-img img{
     max-width: 100%;
@@ -300,11 +298,12 @@ img{
         grid-template-columns: repeat(2, 1fr);
     }
 }
-@media (min-width: 0px) and (max-width: 300px){
+@media (min-width: 0px) and (max-width: 450px){
     .products{
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: 1fr;
     }
+
 }
 .product-name{
     height: 40px;
