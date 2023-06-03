@@ -39,8 +39,7 @@ img{
         align-items: center;
     }
     .amazon-mobile-logo img{
-        height: 32px;
-
+        height: 85%;
     }
     .amazon-mobile-logo:hover{
         cursor: pointer;
@@ -104,7 +103,7 @@ img{
         background-color: rgb(39, 52, 68);
     }
 }
-@media (min-width: 600px) and (max-width: 2500px){
+@media (min-width: 601px) and (max-width: 2500px){
     .amazon-mobile-logo{
         display: none;
     }
@@ -116,7 +115,7 @@ img{
     .amazon-pc-logo{
         margin: none;
         height: 50px;
-        width: 110px;
+        width: 130px;
         margin-top: 5px;
         margin-bottom: 5px;
         border-color: rgb(19,25,33);
@@ -124,8 +123,8 @@ img{
         border-width: 1px;
     }
     .amazon-pc-logo img{
-        width: 100px;
-        margin: 10px 0px 0px 5px;
+        width: 100%;
+        margin-top: 13px;
     }
     .amazon-pc-logo:hover{
         cursor: pointer;
