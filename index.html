@@ -44,7 +44,7 @@
                         <span class="cart-text">  
                             Cart
                         </span>
-                        <span class="cart-value">
+                        <span class="cart-value js-cart-value">
                             0
                         </span>
                     </button>
@@ -54,7 +54,7 @@
                 <img src="Pictures/hamburger-menu.png" onclick="show_hide_orders_cart()">
                 <div id="list-items">
                     <a class="return-orders-text-dropdown" href="orders.html"> Returns & Orders </a>
-                    <a class="cart-text-dropdown" href="cart.html"> Cart () </a>
+                    <a class="cart-text-dropdown js-cart-text-dropdown" href="cart.html"> Cart (0) </a>
                 </div>
             </div>
         </header>
@@ -62,6 +62,7 @@
             <div class="products js-products">
             </div>
         </main>
+        <script src="backendData/cart.js"></script>
         <script src="backendData/products.js"></script>
         <script src="Scripts/index.js"></script>
     </body>

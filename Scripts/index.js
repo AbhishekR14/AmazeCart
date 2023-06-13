@@ -9,6 +9,7 @@ function show_hide_orders_cart()
         click.style.display = "none";
     }
 };
+
 let productsHTML ='';
 products.forEach((product)=>{
     productsHTML += `
@@ -29,7 +30,7 @@ products.forEach((product)=>{
             ₹ ${product.cost}
         </div>
         <div class="no-items-picked">
-            <select class="no-items-picked-button">
+            <select class="no-items-picked-button js-selected-quantity">
                 <option selected value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -44,10 +45,36 @@ products.forEach((product)=>{
         </div>
         <div class="spacer-div"></div>
         <div class="add-to-cart">
-            <button class="add-to-cart-button">Add to Cart</button>
+            <button class="add-to-cart-button js-add-to-cart-button" data-product-id="${product.id}">Add to Cart</button>
         </div>
     </div>
     `
 });
 const productsGrid = document.getElementsByClassName("js-products");
 productsGrid[0].innerHTML = productsHTML;
+
+document.querySelectorAll('.js-add-to-cart-button').forEach((button) => {
+    button.addEventListener('click', () => {
+      const productId = button.dataset.productId;
+      let itemInCart;
+      let totalQuantity = 0;
+      cart.forEach((item) => {
+        if (productId === item.productId) {
+          itemInCart = item;
+        }
+      });
+      if (itemInCart) {
+        itemInCart.quantity += 1;
+      } else {
+        cart.push({
+          productId: productId,
+          quantity: 1
+        });
+      }
+      cart.forEach((item) => {
+        totalQuantity += item.quantity;
+      })
+      document.querySelector('.js-cart-value').innerHTML = totalQuantity;
+      document.querySelector('.js-cart-text-dropdown').innerHTML = 'Cart ('+totalQuantity+')';
+    });
+});
