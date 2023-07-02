@@ -9,7 +9,6 @@ function show_hide_orders_cart()
         click.style.display = "none";
     }
 };
-
 let productsHTML ='';
 products.forEach((product)=>{
     productsHTML += `
@@ -30,7 +29,7 @@ products.forEach((product)=>{
             ₹ ${product.cost}
         </div>
         <div class="no-items-picked">
-            <select class="no-items-picked-button js-selected-quantity">
+            <select class="no-items-picked-button no-items-picked-button-${product.id}">
                 <option selected value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -44,15 +43,22 @@ products.forEach((product)=>{
             </select>
         </div>
         <div class="spacer-div"></div>
+        <div class="added-to-cart js-added-to-cart-${product.id}">
+            <img style="height: 20px;" src="Pictures/checkmark.png">
+            <div class="added-to-cart-text">
+                Added to cart
+            </div>
+        </div>
         <div class="add-to-cart">
             <button class="add-to-cart-button js-add-to-cart-button" data-product-id="${product.id}">Add to Cart</button>
         </div>
     </div>
     `
 });
+//adding the products to the page
 const productsGrid = document.getElementsByClassName("js-products");
 productsGrid[0].innerHTML = productsHTML;
-
+//changing the cart quantity
 document.querySelectorAll('.js-add-to-cart-button').forEach((button) => {
     button.addEventListener('click', () => {
       const productId = button.dataset.productId;
@@ -63,12 +69,15 @@ document.querySelectorAll('.js-add-to-cart-button').forEach((button) => {
           itemInCart = item;
         }
       });
+      //updating the quantity dynamically based on the number of items selected
+      const quantitySelector = document.querySelector(`.no-items-picked-button-${productId}`);
+      const quantity = Number(quantitySelector.value);
       if (itemInCart) {
-        itemInCart.quantity += 1;
+        itemInCart.quantity += quantity;
       } else {
         cart.push({
           productId: productId,
-          quantity: 1
+          quantity: quantity
         });
       }
       cart.forEach((item) => {
@@ -76,5 +85,10 @@ document.querySelectorAll('.js-add-to-cart-button').forEach((button) => {
       })
       document.querySelector('.js-cart-value').innerHTML = totalQuantity;
       document.querySelector('.js-cart-text-dropdown').innerHTML = 'Cart ('+totalQuantity+')';
+      //to make the "Added to cart " visible
+      document.querySelector(`.js-added-to-cart-${productId}`).classList.replace("added-to-cart" , "added-to-cart-is-visible");
+      setTimeout(function() {
+        document.querySelector(`.js-added-to-cart-${productId}`).classList.replace("added-to-cart-is-visible" , "added-to-cart");
+      }, 1500);
     });
 });
