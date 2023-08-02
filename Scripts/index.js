@@ -1,5 +1,6 @@
 import {cart} from '../backendData/cart.js';
 import {products} from '../backendData/products.js';
+import { costToTwoDecimals } from '../Scripts/utils/cost.js';
 show_hide_orders_cart();
 let productsHTML ='';
 products.forEach((product)=>{
@@ -18,7 +19,7 @@ products.forEach((product)=>{
             </div>
         </div>
         <div class="product-cost">
-            ₹ ${product.cost}
+            ₹ ${costToTwoDecimals(product.cost)}
         </div>
         <div class="no-items-picked">
             <select class="no-items-picked-button no-items-picked-button-${product.id}">
@@ -56,9 +57,9 @@ document.querySelectorAll('.js-add-to-cart-button').forEach((button) => {
       const productId = button.dataset.productId;
       let itemInCart;
       let totalQuantity = 0;
-      cart.forEach((item) => {
-        if (productId === item.productId) {
-          itemInCart = item;
+      cart.forEach((cartItem) => {
+        if (productId === cartItem.productId) {
+          itemInCart = cartItem;
         }
       });
       //updating the quantity dynamically based on the number of items selected
@@ -72,8 +73,8 @@ document.querySelectorAll('.js-add-to-cart-button').forEach((button) => {
           quantity: quantity
         });
       }
-      cart.forEach((item) => {
-        totalQuantity += item.quantity;
+      cart.forEach((cartItem) => {
+        totalQuantity += cartItem.quantity;
       })
       document.querySelector('.js-cart-value').innerHTML = totalQuantity;
       document.querySelector('.js-cart-text-dropdown').innerHTML = 'Cart ('+totalQuantity+')';
