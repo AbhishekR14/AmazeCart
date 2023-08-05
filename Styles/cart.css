@@ -49,28 +49,28 @@ img{
     cursor: pointer;
 }
 @media (min-width: 601px) and (max-width: 2500px){
-    .amazon-mobile-logo{
+    .amazecart-mobile-logo{
         display: none;
     }
-    .amazon-logo{
+    .amazecart-logo{
         display: flex;
         width: 150px;
     }
-    .amazon-pc-logo{
+    .amazecart-pc-logo{
         margin: none;
         height: 50px;
-        width: 130px;
+        width: 150px;
         margin-top: 5px;
         margin-bottom: 5px;
         border-color: white;
         border-style: solid;
         border-width: 1px;
     }
-    .amazon-pc-logo img{
+    .amazecart-pc-logo img{
         width: 100%;
         margin-top: 13px;
     }
-    .amazon-pc-logo:hover{
+    .amazecart-pc-logo:hover{
         cursor: pointer;
         border-color: white;
         border-style: solid;
@@ -135,10 +135,10 @@ img{
     }
 }
 @media (min-width: 0px) and (max-width: 600px){
-    .amazon-pc-logo{
+    .amazecart-pc-logo{
         display: none;
     }
-    .amazon-mobile-logo{
+    .amazecart-mobile-logo{
         margin: none;
         height: 50px;
         width: 40px;
@@ -151,17 +151,17 @@ img{
         justify-content: center;
         align-items: center;
     }
-    .amazon-mobile-logo img{
+    .amazecart-mobile-logo img{
         height: 85%;
     }
-    .amazon-mobile-logo:hover{
+    .amazecart-mobile-logo:hover{
         cursor: pointer;
         border-color: white;
         border-style: solid;
         border-width: 1px;
         border-radius: 4px;
     }
-    .amazon-logo{
+    .amazecart-logo{
         display: flex;
         flex: 1;
         justify-content: center;
