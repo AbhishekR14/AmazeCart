@@ -1,5 +1,5 @@
 import { products } from "../backendData/products.js";
-import { cart } from "../backendData/cart.js";
+import { cart , deleteItemFromCart , currentItemListInCart } from "../backendData/cart.js";
 import { costToTwoDecimals } from "./utils/cost.js";
 let cartItemsHTML ='';
 
@@ -12,7 +12,7 @@ cart.forEach((cartItem) => {
         }
     });
     cartItemsHTML += 
-    `<div class="orders-list">
+    `<div class="orders-list js-orders-list-${cartItem.id}">
         <div class="delivery-date">
             Delivery date: Tuesday, June 21
         </div>
@@ -32,7 +32,7 @@ cart.forEach((cartItem) => {
                     <span class="update-quantity-link link-primary">
                         Update
                     </span>
-                    <span class="delete-quantity-link link-primary">
+                    <span class="delete-quantity-link link-primary js-delete-quantity-link" data-product-id="${cartItem.id}">
                         Delete
                     </span>
                 </div>
@@ -81,3 +81,14 @@ cart.forEach((cartItem) => {
 });
 
 document.querySelector('.js-orders-lists').innerHTML = cartItemsHTML;
+
+document.querySelectorAll('.js-delete-quantity-link').forEach((deleteLink) => {
+    deleteLink.addEventListener('click',() => {
+        const id = deleteLink.dataset.productId;
+        deleteItemFromCart(id);
+        document.querySelector(`.js-orders-list-${id}`).remove();
+        document.querySelector('.js-return-to-home-link').innerHTML = currentItemListInCart()+` items`;
+    })
+});
+
+document.querySelector('.js-return-to-home-link').innerHTML = currentItemListInCart()+` items`;

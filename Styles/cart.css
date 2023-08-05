@@ -130,6 +130,9 @@ img{
     .delivery-options {
         grid-column: 1 / span 2;
     }
+    .details-div{
+        padding-left: 10px;
+    }
 }
 @media (min-width: 0px) and (max-width: 600px){
     .amazon-pc-logo{
@@ -199,6 +202,9 @@ img{
     }
     .delivery-options {
         grid-column: 1 / span 2;
+    }
+    .details-div{
+        padding-left: 10px;
     }
 }
 .orders-list{
