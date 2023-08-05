@@ -1,5 +1,5 @@
 import { products } from "../backendData/products.js";
-import { cart , deleteItemFromCart } from "../backendData/cart.js";
+import { cart , deleteItemFromCart , currentItemListInCart } from "../backendData/cart.js";
 import { costToTwoDecimals } from "./utils/cost.js";
 let cartItemsHTML ='';
 
@@ -87,5 +87,8 @@ document.querySelectorAll('.js-delete-quantity-link').forEach((deleteLink) => {
         const id = deleteLink.dataset.productId;
         deleteItemFromCart(id);
         document.querySelector(`.js-orders-list-${id}`).remove();
+        document.querySelector('.js-return-to-home-link').innerHTML = currentItemListInCart()+` items`;
     })
 });
+
+document.querySelector('.js-return-to-home-link').innerHTML = currentItemListInCart()+` items`;

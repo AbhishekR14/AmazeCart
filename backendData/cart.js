@@ -30,3 +30,12 @@ export function currentQuantity(){
     })
     return currQaunt;
 }
+export function currentItemListInCart(){
+    let count = 0;
+    cart.forEach((cartItem) => {
+        if(cartItem.id){
+            count += 1;
+        }
+    })
+    return count;
+}
