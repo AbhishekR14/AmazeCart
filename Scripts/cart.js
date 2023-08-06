@@ -115,7 +115,7 @@ document.querySelectorAll('.save-updated-quantity-link').forEach((saveUpdatedQua
         document.querySelector(`.js-update-cart-quantity-${id}`).classList.add('hide-class');
         document.querySelector(`.js-update-quantity-link-${id}`).classList.remove('hide-class');
         document.querySelector(`.js-quantity-label-${id}`).classList.remove('hide-class');
-        const updatedQuantity = document.querySelector(`.js-update-quantity-text-box-${id}`).value;
+        const updatedQuantity = Number(document.querySelector(`.js-update-quantity-text-box-${id}`).value);
         if(updatedQuantity > 0 && updatedQuantity < 1000){
             updateItemQuantity(updatedQuantity , id);
             document.querySelector(`.js-quantity-label-${id}`).innerHTML = updatedQuantity;
