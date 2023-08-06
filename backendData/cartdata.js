@@ -12,6 +12,24 @@ export function saveToLocalStorage(){
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
+export function addItemToCart(id , quantity){
+    let notInCart = 1;
+    cart.forEach((cartItem) => {
+        if(cartItem.id === id){
+            cartItem.quantity += quantity;
+            notInCart = 0;
+        }
+    })
+    //if the item is not in cart then we add it
+    if(notInCart === 1){
+        cart.push({
+            id: id,
+            quantity: quantity
+        });
+    }
+    saveToLocalStorage();
+};
+
 export function deleteItemFromCart(id){
     let newCart =[];
     cart.forEach((cartItem => {
@@ -26,7 +44,7 @@ export function deleteItemFromCart(id){
 export function currentItemListQuantity(){
     let currQaunt = 0;
     cart.forEach((cartItem) => {
-        currQaunt += cartItem.quantity;
+        currQaunt += Number(cartItem.quantity);
     })
     return currQaunt;
 }
