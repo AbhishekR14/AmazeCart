@@ -120,7 +120,7 @@ document.querySelectorAll('.save-updated-quantity-link').forEach((saveUpdatedQua
             updateItemQuantity(updatedQuantity , id);
             document.querySelector(`.js-quantity-label-${id}`).innerHTML = updatedQuantity;
         }else{
-            alert('Quantity must be at least 0 and less than 1000');
+            alert('Quantity must be at least 1 and less than 1000');
         }
     })
 });
