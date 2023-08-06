@@ -16,7 +16,7 @@ export function addItemToCart(id , quantity){
     let notInCart = 1;
     cart.forEach((cartItem) => {
         if(cartItem.id === id){
-            cartItem.quantity += quantity;
+            cartItem.quantity = cartItem.quantity + Number(quantity);
             notInCart = 0;
         }
     })
