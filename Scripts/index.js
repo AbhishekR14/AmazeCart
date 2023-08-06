@@ -1,4 +1,4 @@
-import { cart , setToLocalStorage , currentQuantity } from '../backendData/cart.js';
+import { cart , saveToLocalStorage , currentItemListQuantity } from '../backendData/cartdata.js';
 import { products } from '../backendData/products.js';
 import { costToTwoDecimals } from '../Scripts/utils/cost.js';
 show_hide_orders_cart();
@@ -76,7 +76,7 @@ document.querySelectorAll('.js-add-to-cart-button').forEach((button) => {
       cart.forEach((cartItem) => {
         totalQuantity += cartItem.quantity;
       })
-      setToLocalStorage();
+      saveToLocalStorage();
       document.querySelector('.js-cart-value').innerHTML = totalQuantity;
       document.querySelector('.js-cart-text-dropdown').innerHTML = 'Cart ('+totalQuantity+')';
       //to make the "Added to cart " visible
@@ -86,5 +86,5 @@ document.querySelectorAll('.js-add-to-cart-button').forEach((button) => {
       }, 1500);
     });
 });
-document.querySelector('.js-cart-value').innerHTML = currentQuantity();
-document.querySelector('.js-cart-text-dropdown').innerHTML = 'Cart ('+currentQuantity()+')';
+document.querySelector('.js-cart-value').innerHTML = currentItemListQuantity();
+document.querySelector('.js-cart-text-dropdown').innerHTML = 'Cart ('+currentItemListQuantity()+')';
