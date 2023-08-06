@@ -1,4 +1,4 @@
-import { cart , setToLocalStorage , currentQuantity } from '../backendData/cart.js';
+import { addItemToCart , currentItemListQuantity } from '../backendData/cartdata.js';
 import { products } from '../backendData/products.js';
 import { costToTwoDecimals } from '../Scripts/utils/cost.js';
 show_hide_orders_cart();
@@ -55,30 +55,13 @@ productsGrid[0].innerHTML = productsHTML;
 document.querySelectorAll('.js-add-to-cart-button').forEach((button) => {
     button.addEventListener('click', () => {
       const productId = button.dataset.productId;
-      let itemInCart;
-      let totalQuantity = 0;
-      cart.forEach((cartItem) => {
-        if (productId === cartItem.productId) {
-          itemInCart = cartItem;
-        }
-      });
       //updating the quantity dynamically based on the number of items selected
       const quantitySelector = document.querySelector(`.no-items-picked-button-${productId}`);
       const quantity = Number(quantitySelector.value);
-      if (itemInCart) {
-        itemInCart.quantity += quantity;
-      } else {
-        cart.push({
-          id: productId,
-          quantity: quantity
-        });
-      }
-      cart.forEach((cartItem) => {
-        totalQuantity += cartItem.quantity;
-      })
-      setToLocalStorage();
-      document.querySelector('.js-cart-value').innerHTML = totalQuantity;
-      document.querySelector('.js-cart-text-dropdown').innerHTML = 'Cart ('+totalQuantity+')';
+      //adding item to cart
+      addItemToCart(productId,quantity);
+      document.querySelector('.js-cart-value').innerHTML = currentItemListQuantity();
+      document.querySelector('.js-cart-text-dropdown').innerHTML = 'Cart ('+currentItemListQuantity()+')';
       //to make the "Added to cart " visible
       document.querySelector(`.js-added-to-cart-${productId}`).classList.replace("added-to-cart" , "added-to-cart-is-visible");
       setTimeout(function() {
@@ -86,5 +69,5 @@ document.querySelectorAll('.js-add-to-cart-button').forEach((button) => {
       }, 1500);
     });
 });
-document.querySelector('.js-cart-value').innerHTML = currentQuantity();
-document.querySelector('.js-cart-text-dropdown').innerHTML = 'Cart ('+currentQuantity()+')';
+document.querySelector('.js-cart-value').innerHTML = currentItemListQuantity();
+document.querySelector('.js-cart-text-dropdown').innerHTML = 'Cart ('+currentItemListQuantity()+')';

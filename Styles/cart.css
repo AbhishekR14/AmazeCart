@@ -309,3 +309,14 @@ img{
     font-size: 22px;
     margin-bottom: 18px;
 }
+.update-cart-quantity{
+    margin: 0px;
+}
+.hide-class{
+    display:none;
+}
+.update-quantity-text-box{
+    width: 25px;
+    padding: 0px;
+    height: 15px;
+}
