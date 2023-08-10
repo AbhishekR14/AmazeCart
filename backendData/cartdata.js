@@ -83,11 +83,6 @@ export function cartTotalPrice(){
     return totalPrice;
 };
 
-export function cartShippingCost(){
-    let shippingCost = 150;
-    return shippingCost;
-};
-
 export function cartTotalTax(totalPrice){
     return (totalPrice * 0.1 ).toFixed(2);
 };

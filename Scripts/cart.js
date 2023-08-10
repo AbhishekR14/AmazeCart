@@ -5,11 +5,19 @@ import {
     currentItemListInCart , 
     updateItemQuantity , 
     cartTotalPrice,
-    cartShippingCost,
     cartTotalTax } from "../backendData/cartdata.js";
 import { costToTwoDecimals } from "./utils/cost.js";
+import { getFormattedDate } from "./utils/formattedDate.js";
+
 let cartItemsHTML ='';
 let cartItemPriceHTML = '';
+const today = new Date();
+const tomorrow = new Date(today);
+const todayPlus3 = new Date(today);
+const lastDate = new Date(today);
+tomorrow.setDate(today.getDate() + 1);
+todayPlus3.setDate(today.getDate() + 3);
+lastDate.setDate(today.getDate() + 7);
 
 cart.forEach((cartItem) => {
     const cartItemID = cartItem.id;
@@ -21,8 +29,8 @@ cart.forEach((cartItem) => {
     });
     cartItemsHTML += 
     `<div class="orders-list js-orders-list-${cartItem.id}">
-        <div class="delivery-date">
-            Delivery date: Tuesday, June 21
+        <div class="delivery-date js-delivery-date-${cartItem.id}">
+            Delivery date: ${getFormattedDate(lastDate)}
         </div>
         <div class="order-details-grid">
             <img class="product-image" src=${cartProducts.image}>
@@ -57,10 +65,10 @@ cart.forEach((cartItem) => {
                     Choose a delivery option:
                 </div>
                 <div class="delivery-option">
-                    <input type="radio" checked="" class="delivery-option-input" name="delivery-option-${cartProducts.id}">
+                    <input type="radio" checked="" class="delivery-option-input js-delivery-option-input" name="delivery-option-${cartProducts.id}" value=${Number(1)} data-id="${cartProducts.id}">
                         <div>
                             <div class="delivery-option-date">
-                                Tuesday, June 21
+                                ${getFormattedDate(lastDate)}
                             </div>
                             <div class="delivery-option-price">
                                 FREE Shipping
@@ -68,10 +76,10 @@ cart.forEach((cartItem) => {
                         </div>
                 </div>
                 <div class="delivery-option">
-                    <input type="radio" class="delivery-option-input" name="delivery-option-${cartProducts.id}">
+                    <input type="radio" class="delivery-option-input js-delivery-option-input" name="delivery-option-${cartProducts.id}" value=${Number(2)} data-id="${cartProducts.id}">
                         <div>
                             <div class="delivery-option-date">
-                                Wednesday, June 15
+                                ${getFormattedDate(todayPlus3)}
                             </div>
                             <div class="delivery-option-price">
                                 ₹ 150 - Shipping
@@ -79,10 +87,10 @@ cart.forEach((cartItem) => {
                         </div>
                 </div>
                     <div class="delivery-option">
-                        <input type="radio" class="delivery-option-input" name="delivery-option-${cartProducts.id}">
+                        <input type="radio" class="delivery-option-input js-delivery-option-input" name="delivery-option-${cartProducts.id}" value=${Number(3)} data-id="${cartProducts.id}">
                             <div>
                                 <div class="delivery-option-date">
-                                    Monday, June 13
+                                    ${getFormattedDate(tomorrow)}
                                 </div>
                                 <div class="delivery-option-price">
                                     ₹ 300 - Shipping
@@ -96,7 +104,7 @@ cart.forEach((cartItem) => {
 });
 function cartItemPrice(){    
     let CartTotalPrice = cartTotalPrice();
-    let CartShippingCost = cartShippingCost();
+    let CartShippingCost = 0;
     let CartTotalTax = cartTotalTax(CartTotalPrice + CartShippingCost);
     let CartTotal = Number(CartTotalTax + CartTotalPrice + CartShippingCost).toFixed(2);
     return `
@@ -171,4 +179,21 @@ document.querySelectorAll('.save-updated-quantity-link').forEach((saveUpdatedQua
             alert('Quantity must be at least 1 and less than 1000');
         }
     })
+});
+
+document.querySelectorAll('.js-delivery-option-input').forEach((input) => {
+    input.addEventListener('change', (event) => {
+        const selectedOption = Number(event.target.value);
+        const Id = input.dataset.id;
+        let shippingDate;
+        switch(selectedOption){
+            case 1 : shippingDate = `Delivery date: ${getFormattedDate(lastDate)}`;
+                     break;
+            case 2 : shippingDate = `Delivery date: ${getFormattedDate(todayPlus3)}`;
+                     break;
+            case 3 : shippingDate = `Delivery date: ${getFormattedDate(tomorrow)}`;
+                     break;
+        };
+        document.querySelector(`.js-delivery-date-${Id}`).innerHTML = shippingDate;
+    });
 });
