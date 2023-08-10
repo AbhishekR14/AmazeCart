@@ -1,7 +1,15 @@
 import { products } from "../backendData/products.js";
-import { cart , deleteItemFromCart , currentItemListInCart , updateItemQuantity } from "../backendData/cartdata.js";
+import { 
+    cart , 
+    deleteItemFromCart , 
+    currentItemListInCart , 
+    updateItemQuantity , 
+    cartTotalPrice,
+    cartShippingCost,
+    cartTotalTax } from "../backendData/cartdata.js";
 import { costToTwoDecimals } from "./utils/cost.js";
 let cartItemsHTML ='';
+let cartItemPriceHTML = '';
 
 cart.forEach((cartItem) => {
     const cartItemID = cartItem.id;
@@ -86,6 +94,42 @@ cart.forEach((cartItem) => {
     </div>
     `
 });
+function cartItemPrice(){    
+    let CartTotalPrice = cartTotalPrice();
+    let CartShippingCost = cartShippingCost();
+    let CartTotalTax = cartTotalTax(CartTotalPrice + CartShippingCost);
+    let CartTotal = Number(CartTotalTax + CartTotalPrice + CartShippingCost).toFixed(2);
+    return `
+        <div class="payment-summary-title">
+            Order Summary
+        </div>
+        <div class="payment-summary-row">
+            <div>Items (${currentItemListInCart()}):</div>
+            <div class="payment-summary-money">₹ ${costToTwoDecimals(CartTotalPrice)}</div>
+        </div>
+        <div class="payment-summary-row">
+            <div>Shipping &amp; handling:</div>
+            <div class="payment-summary-money">₹ ${costToTwoDecimals(CartShippingCost)}</div>
+        </div>
+        <div class="payment-summary-row subtotal-row">
+            <div>Total before tax:</div>
+            <div class="payment-summary-money">₹ ${costToTwoDecimals(CartTotalPrice + CartShippingCost)}</div>
+        </div>
+        <div class="payment-summary-row">
+            <div>Estimated tax (10%):</div>
+            <div class="payment-summary-money">₹ ${CartTotalTax}</div>
+        </div>
+        <div class="payment-summary-row total-row">
+            <div>Order total:</div>
+            <div class="payment-summary-money">₹ ${CartTotal}</div>
+        </div>
+        <button class="place-order-button button-primary">
+            Place your order
+        </button>
+    `;
+};
+cartItemPriceHTML = cartItemPrice();
+document.querySelector('.js-payment-details').innerHTML = cartItemPriceHTML;
 
 document.querySelector('.js-orders-lists').innerHTML = cartItemsHTML;
 
@@ -95,6 +139,8 @@ document.querySelectorAll('.js-delete-quantity-link').forEach((deleteLink) => {
         deleteItemFromCart(id);
         document.querySelector(`.js-orders-list-${id}`).remove();
         document.querySelector('.js-return-to-home-link').innerHTML = currentItemListInCart()+` items`;
+        cartItemPriceHTML = cartItemPrice();
+        document.querySelector('.js-payment-details').innerHTML = cartItemPriceHTML;
     })
 });
 
@@ -119,6 +165,8 @@ document.querySelectorAll('.save-updated-quantity-link').forEach((saveUpdatedQua
         if(updatedQuantity > 0 && updatedQuantity < 1000){
             updateItemQuantity(updatedQuantity , id);
             document.querySelector(`.js-quantity-label-${id}`).innerHTML = updatedQuantity;
+            cartItemPriceHTML = cartItemPrice();
+            document.querySelector('.js-payment-details').innerHTML = cartItemPriceHTML;
         }else{
             alert('Quantity must be at least 1 and less than 1000');
         }

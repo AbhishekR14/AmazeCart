@@ -1,3 +1,5 @@
+import { products } from "./products.js";
+
 export let cart = JSON.parse(localStorage.getItem('cart'));
 if(!cart){
     cart = [{
@@ -65,4 +67,27 @@ export function updateItemQuantity(newQuantity , id){
         }
     });
     saveToLocalStorage();
+};
+
+export function cartTotalPrice(){
+    let totalPrice = 0;
+    cart.forEach((cartItem) => {
+        let cartProducts;
+        products.forEach((product) => {
+            if (product.id === cartItem.id){
+            cartProducts = product;
+            }
+        });
+        totalPrice += ((cartProducts.cost * cartItem.quantity));
+    });
+    return totalPrice;
+};
+
+export function cartShippingCost(){
+    let shippingCost = 150;
+    return shippingCost;
+};
+
+export function cartTotalTax(totalPrice){
+    return (totalPrice * 0.1 ).toFixed(2);
 };
