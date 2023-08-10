@@ -84,5 +84,5 @@ export function cartTotalPrice(){
 };
 
 export function cartTotalTax(totalPrice){
-    return (totalPrice * 0.1 ).toFixed(2);
+    return totalPrice * 0.1;
 };
