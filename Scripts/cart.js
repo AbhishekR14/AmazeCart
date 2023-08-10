@@ -106,7 +106,7 @@ function cartItemPrice(){
     let CartTotalPrice = cartTotalPrice();
     let CartShippingCost = 0;
     let CartTotalTax = cartTotalTax(CartTotalPrice + CartShippingCost);
-    let CartTotal = Number(CartTotalTax + CartTotalPrice + CartShippingCost).toFixed(2);
+    let CartTotal = CartTotalTax + CartTotalPrice + CartShippingCost;
     return `
         <div class="payment-summary-title">
             Order Summary
@@ -125,11 +125,11 @@ function cartItemPrice(){
         </div>
         <div class="payment-summary-row">
             <div>Estimated tax (10%):</div>
-            <div class="payment-summary-money">₹ ${CartTotalTax}</div>
+            <div class="payment-summary-money">₹ ${costToTwoDecimals(CartTotalTax)}</div>
         </div>
         <div class="payment-summary-row total-row">
             <div>Order total:</div>
-            <div class="payment-summary-money">₹ ${CartTotal}</div>
+            <div class="payment-summary-money">₹ ${costToTwoDecimals(CartTotal)}</div>
         </div>
         <button class="place-order-button button-primary">
             Place your order
