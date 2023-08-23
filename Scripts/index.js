@@ -91,7 +91,7 @@ function renderSearchedProducts(searchedText) {
         products.forEach((product)=>{
             let name = product.name.toLowerCase();
             let Keywords = product.keywords.find((element) => element.toLowerCase() === searchedText.toLowerCase());
-            if(name.includes(searchedText) || Keywords === searchedText.toLowerCase() ? true : false) {
+            if(name.includes(searchedText.toLowerCase()) || Keywords === searchedText.toLowerCase() ? true : false) {
                 productsHTML += `
                 <div class="element">
                     <div class="product-img">
