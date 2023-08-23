@@ -7,7 +7,12 @@ export const products = [
             stars: 4.5,
             number: 56
         },
-        cost: 633
+        cost: 633,
+        keywords: [
+          "sweatshirt",
+          "cotton",
+          "apparel"
+        ]        
     },
     {
         id: "qpwon2103-mnbj5646-jhsfvj84-sgvfsh42",
@@ -17,7 +22,12 @@ export const products = [
             stars: 4,
             number: 30
         },
-        cost: 1250
+        cost: 1250,
+        keywords: [
+          "sunglasses",
+          "round",
+          "apparel"
+        ]
     },
     {
         id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
