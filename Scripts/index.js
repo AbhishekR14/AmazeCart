@@ -135,8 +135,12 @@ function renderSearchedProducts(searchedText) {
                     </div>
                 </div>
             `
-            }
+            };
         });
-        return productsHTML
+        if (productsHTML == ''){
+            return ("No products matched your search.")
+        }else{
+            return productsHTML
+        }
     };
 };
