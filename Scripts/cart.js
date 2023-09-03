@@ -142,6 +142,9 @@ cartItemPriceHTML = cartItemPrice();
 document.querySelector('.js-payment-details').innerHTML = cartItemPriceHTML;
 
 document.querySelector('.js-orders-lists').innerHTML = cartItemsHTML;
+if (cart.length === 0){
+    document.querySelector('.js-orders-lists').innerHTML ="No products in your cart."
+};
 
 document.querySelectorAll('.js-delivery-option-input').forEach((input) => {
     let deliveryDate = 1;
@@ -174,6 +177,9 @@ document.querySelectorAll('.js-delete-quantity-link').forEach((deleteLink) => {
         document.querySelector('.js-return-to-home-link').innerHTML = currentItemListInCart()+` items`;
         cartItemPriceHTML = cartItemPrice();
         document.querySelector('.js-payment-details').innerHTML = cartItemPriceHTML;
+        if (cart.length === 0){
+            document.querySelector('.js-orders-lists').innerHTML ="No products in your cart."
+        };
     })
 });
 
