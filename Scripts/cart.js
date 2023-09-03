@@ -5,7 +5,9 @@ import {
     currentItemListInCart , 
     updateItemQuantity , 
     cartTotalPrice,
-    cartTotalTax } from "../backendData/cartdata.js";
+    cartTotalTax,
+    updateItemDeliveryDate,
+    cartTotalDeliveryFee, } from "../backendData/cartdata.js";
 import { costToTwoDecimals } from "./utils/cost.js";
 import { getFormattedDate } from "./utils/formattedDate.js";
 
@@ -65,7 +67,7 @@ cart.forEach((cartItem) => {
                     Choose a delivery option:
                 </div>
                 <div class="delivery-option">
-                    <input type="radio" checked="" class="delivery-option-input js-delivery-option-input" name="delivery-option-${cartProducts.id}" value=${Number(1)} data-id="${cartProducts.id}">
+                    <input type="radio" class="delivery-option-input js-delivery-option-input" name="delivery-option-${cartProducts.id}" value=${Number(1)} data-id="${cartProducts.id}">
                         <div>
                             <div class="delivery-option-date">
                                 ${getFormattedDate(lastDate)}
@@ -104,7 +106,7 @@ cart.forEach((cartItem) => {
 });
 function cartItemPrice(){    
     let CartTotalPrice = cartTotalPrice();
-    let CartShippingCost = 0;
+    let CartShippingCost = cartTotalDeliveryFee();
     let CartTotalTax = cartTotalTax(CartTotalPrice + CartShippingCost);
     let CartTotal = CartTotalTax + CartTotalPrice + CartShippingCost;
     return `
@@ -140,6 +142,29 @@ cartItemPriceHTML = cartItemPrice();
 document.querySelector('.js-payment-details').innerHTML = cartItemPriceHTML;
 
 document.querySelector('.js-orders-lists').innerHTML = cartItemsHTML;
+
+document.querySelectorAll('.js-delivery-option-input').forEach((input) => {
+    let deliveryDate = 1;
+    const Id = input.dataset.id;
+    cart.forEach((item) => {
+        if(item.id === Id){
+            deliveryDate = item.deliveryDate;
+            let shippingDate;
+            switch(item.deliveryDate){
+                case 1 : shippingDate = `Delivery date: ${getFormattedDate(lastDate)}`;
+                            break;
+                case 2 : shippingDate = `Delivery date: ${getFormattedDate(todayPlus3)}`;
+                            break;
+                case 3 : shippingDate = `Delivery date: ${getFormattedDate(tomorrow)}`;
+                            break;
+            };
+            document.querySelector(`.js-delivery-date-${Id}`).innerHTML = shippingDate;
+        };
+    });
+    if (input.value === deliveryDate.toString()) {
+        input.checked = true; 
+    };
+});
 
 document.querySelectorAll('.js-delete-quantity-link').forEach((deleteLink) => {
     deleteLink.addEventListener('click',() => {
@@ -195,5 +220,8 @@ document.querySelectorAll('.js-delivery-option-input').forEach((input) => {
                      break;
         };
         document.querySelector(`.js-delivery-date-${Id}`).innerHTML = shippingDate;
+        updateItemDeliveryDate(selectedOption,Id);
+        cartItemPriceHTML = cartItemPrice();
+        document.querySelector('.js-payment-details').innerHTML = cartItemPriceHTML;
     });
 });
