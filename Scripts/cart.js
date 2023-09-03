@@ -161,7 +161,7 @@ document.querySelectorAll('.js-delivery-option-input').forEach((input) => {
             document.querySelector(`.js-delivery-date-${Id}`).innerHTML = shippingDate;
         };
     });
-    if (input.value === deliveryDate.toString()) {
+    if (Number(input.value) === deliveryDate) {
         input.checked = true; 
     };
 });
