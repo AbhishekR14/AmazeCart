@@ -7,9 +7,12 @@ import {
     cartTotalPrice,
     cartTotalTax,
     updateItemDeliveryDate,
-    cartTotalDeliveryFee, } from "../backendData/cartdata.js";
+    cartTotalDeliveryFee, 
+    placeOrder,
+    priceChanged } from "../backendData/cartdata.js";
 import { costToTwoDecimals } from "./utils/cost.js";
 import { getFormattedDate } from "./utils/formattedDate.js";
+import { orders } from "../backendData/ordersdata.js";
 
 let cartItemsHTML ='';
 let cartItemPriceHTML = '';
@@ -133,9 +136,11 @@ function cartItemPrice(){
             <div>Order total:</div>
             <div class="payment-summary-money">₹ ${costToTwoDecimals(CartTotal)}</div>
         </div>
-        <button class="place-order-button button-primary">
-            Place your order
-        </button>
+        <a href="orders.html">
+            <button class="place-order-button button-primary js-place-order-button">
+                Place your order
+            </button>
+        </a>
     `;
 };
 cartItemPriceHTML = cartItemPrice();
@@ -177,9 +182,15 @@ document.querySelectorAll('.js-delete-quantity-link').forEach((deleteLink) => {
         document.querySelector('.js-return-to-home-link').innerHTML = currentItemListInCart()+` items`;
         cartItemPriceHTML = cartItemPrice();
         document.querySelector('.js-payment-details').innerHTML = cartItemPriceHTML;
+        priceChanged();
         if (cart.length === 0){
-            document.querySelector('.js-orders-lists').innerHTML ="No products in your cart."
+            document.querySelector('.js-orders-main').innerHTML ="No products in your cart."
         };
+        document.querySelector('.js-place-order-button').addEventListener('click', () => {
+            if(cart.length > 0){
+                placeOrder();
+            }
+        });
     })
 });
 
@@ -206,6 +217,12 @@ document.querySelectorAll('.save-updated-quantity-link').forEach((saveUpdatedQua
             document.querySelector(`.js-quantity-label-${id}`).innerHTML = updatedQuantity;
             cartItemPriceHTML = cartItemPrice();
             document.querySelector('.js-payment-details').innerHTML = cartItemPriceHTML;
+            priceChanged();
+            document.querySelector('.js-place-order-button').addEventListener('click', () => {
+                if(cart.length > 0){
+                    placeOrder();
+                }
+            });
         }else{
             alert('Quantity must be at least 1 and less than 1000');
         }
@@ -229,5 +246,30 @@ document.querySelectorAll('.js-delivery-option-input').forEach((input) => {
         updateItemDeliveryDate(selectedOption,Id);
         cartItemPriceHTML = cartItemPrice();
         document.querySelector('.js-payment-details').innerHTML = cartItemPriceHTML;
+        priceChanged();
+        document.querySelector('.js-place-order-button').addEventListener('click', () => {
+            if(cart.length > 0){
+                placeOrder();
+            }
+        });
     });
 });
+
+document.querySelector('.js-place-order-button').addEventListener('click', () => {
+    if(cart.length > 0){
+        priceChanged();
+        placeOrder();
+    }
+});
+
+if (cart.length === 0){
+    document.querySelector('.js-orders-main').innerHTML =
+    `No products in your cart.
+    <br>
+    <a href="index.html">
+        <button class="back-to-home-button button-primary">
+            Go back home
+        </button>
+    </a>
+    `
+};
