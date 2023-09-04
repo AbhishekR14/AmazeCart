@@ -48,6 +48,18 @@ img{
     text-decoration: none;
     cursor: pointer;
 }
+.back-to-home-button{
+    margin-top: 10px;
+    color: rgb(33, 33, 33);
+    background-color: rgb(255, 216, 20);
+    border: 1px solid rgb(252, 210, 0);
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+    font-size: 15px;
+    width: 140px;
+    height: 36px;
+}
 @media (min-width: 601px) and (max-width: 2500px){
     .amazecart-mobile-logo{
         display: none;

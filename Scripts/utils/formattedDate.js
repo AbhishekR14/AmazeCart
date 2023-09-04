@@ -8,3 +8,10 @@ export function getFormattedDate(date) {
   
   return `${dayOfWeek}, ${month} ${day}`;
 };
+
+export function getMonthAndDate(date) {
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const month = months[date.getMonth()];
+  const day = date.getDate();
+  return `${month} ${day}`;
+};

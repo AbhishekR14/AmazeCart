@@ -1,5 +1,4 @@
 import { currentItemListQuantity } from '../backendData/cartdata.js';
-import { costToTwoDecimals } from "./utils/cost.js";
 import { products } from "../backendData/products.js";
 import { orders } from "../backendData/ordersdata.js";
 show_hide_orders_cart();
@@ -25,7 +24,7 @@ orders.forEach(order => {
                         Total:
                     </div>
                     <div class="order-header-info">
-                        ₹ ${costToTwoDecimals(order.totalCost/100)}
+                        ₹ ${order.totalCost}
                     </div>
                 </div>
             </div>
@@ -78,3 +77,13 @@ orders.forEach(order => {
 });
 
 document.querySelector('.js-orders-container').innerHTML = ordersHTML;
+
+if(orders.length === 0){
+    document.querySelector('.js-orders-container').innerHTML = `You have placed no orders 
+    <br>
+    <a href="index.html">
+        <button class="back-to-home-button button-primary">
+            Go back home
+        </button>
+    </a>`;
+}

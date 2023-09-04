@@ -1,21 +1,35 @@
 import { products } from "./products.js";
+import { orders } from "./ordersdata.js";
+import { getMonthAndDate } from "../Scripts/utils/formattedDate.js";
+import { costToTwoDecimals } from "../Scripts/utils/cost.js";
+import { saveOrdersToLocalStorage } from "./ordersdata.js";
+const today = new Date();
+const tomorrow = new Date(today);
+const todayPlus3 = new Date(today);
+const lastDate = new Date(today);
+tomorrow.setDate(today.getDate() + 1);
+todayPlus3.setDate(today.getDate() + 3);
+lastDate.setDate(today.getDate() + 7);
 // deliveryDate: 1 = free , 2 = 150 , 3=300 
 export let cart = JSON.parse(localStorage.getItem('cart'));
 if(!cart){
-    cart = [{
-    id: "dhbd55151-sub52136-wiuib845-apn-5326gdv",
-    quantity: 1,
-    deliveryDate : 1 
-},{
-    id: "qpwon2103-mnbj5646-jhsfvj84-sgvfsh42",
-    quantity: 1,
-    deliveryDate : 1
-}];
+    cart = [];
 }
 export function saveToLocalStorage(){
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
+let CartTotalPrice
+let CartShippingCost
+let CartTotalTax
+let CartTotal
+export function priceChanged(){
+    CartTotalPrice = cartTotalPrice();
+    CartShippingCost = cartTotalDeliveryFee();
+    CartTotalTax = cartTotalTax(CartTotalPrice + CartShippingCost);
+    CartTotal = CartTotalTax + CartTotalPrice + CartShippingCost;
+}
+priceChanged();
 export function addItemToCart(id , quantity , deliveryDate = 1){
     let notInCart = 1;
     cart.forEach((cartItem) => {
@@ -113,4 +127,44 @@ export function getDeliveryFee(optionPicked){
         case 2 : return 150;
         case 3 : return 300;
     }
+};
+
+export function FormatteDeliveryDate(optionPicked){
+    switch(optionPicked){
+        case 0: return getMonthAndDate(today);
+        case 1 : return getMonthAndDate(lastDate);
+        case 2 : return getMonthAndDate(todayPlus3);
+        case 3 : return getMonthAndDate(tomorrow);
+    }
+};
+
+function generateOrderId() {
+    const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-';
+    let result = '';
+    const charactersLength = characters.length;
+    for (let i = 0; i < 32; i++) {
+        const randomIndex = Math.floor(Math.random() * charactersLength);
+        result += characters.charAt(randomIndex);
+    }
+    return result;
+};
+
+export function placeOrder(){
+    let cartitem = []
+    cart.forEach(cartItem => {
+        cartitem.push({
+            id: cartItem.id,
+            quantity: cartItem.quantity,
+            arrivingDate: FormatteDeliveryDate(cartItem.deliveryDate)
+        })
+        deleteItemFromCart(cartItem.id)
+    });
+    orders.push({
+        orderId: generateOrderId(),
+        orderDate: FormatteDeliveryDate(0),
+        totalCost: costToTwoDecimals(CartTotal),
+        items: cartitem
+    });
+    console.log(orders)
+    saveOrdersToLocalStorage();
 };
