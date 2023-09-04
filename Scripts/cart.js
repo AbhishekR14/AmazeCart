@@ -10,6 +10,7 @@ import {
     cartTotalDeliveryFee, } from "../backendData/cartdata.js";
 import { costToTwoDecimals } from "./utils/cost.js";
 import { getFormattedDate } from "./utils/formattedDate.js";
+import { orders } from "../backendData/ordersdata.js";
 
 let cartItemsHTML ='';
 let cartItemPriceHTML = '';
