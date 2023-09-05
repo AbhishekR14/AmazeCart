@@ -1,5 +1,6 @@
 import { orders } from "../backendData/ordersdata.js";
 import { products } from '../backendData/products.js';
+import { convertToDate , compareDates } from "../Scripts/utils/formattedDate.js";
 
 export let trackingHTML = localStorage.getItem('trackingHTML');
 if(!trackingHTML){
@@ -51,7 +52,13 @@ export function updateTrackingHTML(orderId , itemId){
     </div>
     </div>
     <div class="progress-bar-container">
-    <div class="progress-bar"></div>
+    <div class="progress-bar${progessBar(selectedItem.arrivingDate)}"></div>
     </div>`
     saveTrackingHTMLToLocalStorage()
 };
+
+function progessBar(arrivingDate){
+    //progress-bar1 , progress-bar2 , progress-bar3 determines when the order is placed
+    const arrdate = convertToDate(arrivingDate);
+    return compareDates(arrdate)
+}

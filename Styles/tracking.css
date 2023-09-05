@@ -63,11 +63,35 @@ main {
     border-radius: 50px;
     overflow: hidden;
 }
-.progress-bar {
+.progress-bar1 {
+    height: 100%;
+    background-color: green;
+    border-radius: 50px;
+    width: 10%;
+}
+.progress-bar2 {
+    height: 100%;
+    background-color: green;
+    border-radius: 50px;
+    width: 25%;
+}
+.progress-bar3 {
     height: 100%;
     background-color: green;
     border-radius: 50px;
     width: 50%;
+}
+.progress-bar4 {
+    height: 100%;
+    background-color: green;
+    border-radius: 50px;
+    width: 75%;
+}
+.progress-bar5 {
+    height: 100%;
+    background-color: green;
+    border-radius: 50px;
+    width: 100%;
 }
 .link-primary {
     color: rgb(1, 124, 182);
