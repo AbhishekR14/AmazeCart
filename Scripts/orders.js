@@ -1,6 +1,7 @@
-import { currentItemListQuantity } from '../backendData/cartdata.js';
+import { addItemToCart , currentItemListQuantity } from '../backendData/cartdata.js';
 import { products } from "../backendData/products.js";
 import { orders } from "../backendData/ordersdata.js";
+import { updateTrackingHTML } from '../backendData/trackingdata.js';
 show_hide_orders_cart();
 
 document.querySelector('.js-cart-value').innerHTML = currentItemListQuantity();
@@ -60,17 +61,19 @@ orders.forEach(order => {
                 <div class="product-quantity">
                     Quantity: ${item.quantity}
                 </div>
-                <button class="buy-again-button button-primary">
-                <img class="buy-again-icon" src="Pictures/buy-again.png">
-                <span class="buy-again-message">Buy it again</span>
-                </button>
+                <a href="cart.html">
+                    <button class="buy-again-button button-primary js-buy-again-button" data-id="${itemID}" data-quantity="${item.quantity}" >
+                    <img class="buy-again-icon" src="Pictures/buy-again.png">
+                    <span class="buy-again-message">Buy it again</span>
+                    </button>
+                </a>
             </div>
             <div class="product-actions">
-                <a href="tracking.html">
-                <button class="track-package-button button-secondary">
+            <a href="tracking.html">
+                <button class="track-package-button button-secondary js-track-package-button" data-id="${itemID}" data-order-id="${order.orderId}">
                     Track package
                 </button>
-                </a>
+            </a>
             </div>
         </div>`;
     });
@@ -87,3 +90,19 @@ if(orders.length === 0){
         </button>
     </a>`;
 }
+
+document.querySelectorAll('.js-buy-again-button').forEach(buyAgain => {
+    buyAgain.addEventListener('click', () => {
+        const Id = buyAgain.dataset.id;
+        const Quantity = buyAgain.dataset.quantity;
+        addItemToCart(Id,Quantity);
+    });
+});
+
+document.querySelectorAll('.js-track-package-button').forEach(trackOrder => {
+    trackOrder.addEventListener('click', () => {
+        const Id = trackOrder.dataset.id;
+        const OrderId = trackOrder.dataset.orderId;
+        updateTrackingHTML(OrderId, Id);
+    });
+});
