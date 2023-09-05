@@ -1,4 +1,4 @@
-import { currentItemListQuantity } from '../backendData/cartdata.js';
+import { addItemToCart , currentItemListQuantity } from '../backendData/cartdata.js';
 import { products } from "../backendData/products.js";
 import { orders } from "../backendData/ordersdata.js";
 show_hide_orders_cart();
@@ -60,10 +60,12 @@ orders.forEach(order => {
                 <div class="product-quantity">
                     Quantity: ${item.quantity}
                 </div>
-                <button class="buy-again-button button-primary">
-                <img class="buy-again-icon" src="Pictures/buy-again.png">
-                <span class="buy-again-message">Buy it again</span>
-                </button>
+                <a href="cart.html">
+                    <button class="buy-again-button button-primary js-buy-again-button" data-id="${itemID}" data-quantity="${item.quantity}" >
+                    <img class="buy-again-icon" src="Pictures/buy-again.png">
+                    <span class="buy-again-message">Buy it again</span>
+                    </button>
+                </a>
             </div>
             <div class="product-actions">
                 <a href="tracking.html">
@@ -87,3 +89,11 @@ if(orders.length === 0){
         </button>
     </a>`;
 }
+
+document.querySelectorAll('.js-buy-again-button').forEach(buyAgain => {
+    buyAgain.addEventListener('click', () => {
+        const Id = buyAgain.dataset.id;
+        const Quantity = buyAgain.dataset.quantity;
+        addItemToCart(Id,Quantity);
+    });
+});
