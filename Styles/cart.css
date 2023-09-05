@@ -61,14 +61,14 @@ img{
     height: 36px;
 }
 @media (min-width: 601px) and (max-width: 2500px){
-    .amazecart-mobile-logo{
+    .onestop-mobile-logo{
         display: none;
     }
-    .amazecart-logo{
+    .onestop-logo{
         display: flex;
         width: 150px;
     }
-    .amazecart-pc-logo{
+    .onestop-pc-logo{
         margin: none;
         height: 50px;
         width: 150px;
@@ -78,11 +78,11 @@ img{
         border-style: solid;
         border-width: 1px;
     }
-    .amazecart-pc-logo img{
+    .onestop-pc-logo img{
         width: 100%;
-        margin-top: 13px;
+        margin-top: 8px;
     }
-    .amazecart-pc-logo:hover{
+    .onestop-pc-logo:hover{
         cursor: pointer;
         border-color: white;
         border-style: solid;
@@ -147,10 +147,10 @@ img{
     }
 }
 @media (min-width: 0px) and (max-width: 600px){
-    .amazecart-pc-logo{
+    .onestop-pc-logo{
         display: none;
     }
-    .amazecart-mobile-logo{
+    .onestop-mobile-logo{
         margin: none;
         height: 50px;
         width: 40px;
@@ -163,17 +163,17 @@ img{
         justify-content: center;
         align-items: center;
     }
-    .amazecart-mobile-logo img{
+    .onestop-mobile-logo img{
         height: 85%;
     }
-    .amazecart-mobile-logo:hover{
+    .onestop-mobile-logo:hover{
         cursor: pointer;
         border-color: white;
         border-style: solid;
         border-width: 1px;
         border-radius: 4px;
     }
-    .amazecart-logo{
+    .onestop-logo{
         display: flex;
         flex: 1;
         justify-content: center;

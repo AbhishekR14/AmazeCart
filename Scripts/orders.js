@@ -1,6 +1,7 @@
 import { addItemToCart , currentItemListQuantity } from '../backendData/cartdata.js';
 import { products } from "../backendData/products.js";
 import { orders } from "../backendData/ordersdata.js";
+import { updateTrackingHTML } from "./tracking.js"
 show_hide_orders_cart();
 
 document.querySelector('.js-cart-value').innerHTML = currentItemListQuantity();
@@ -68,11 +69,11 @@ orders.forEach(order => {
                 </a>
             </div>
             <div class="product-actions">
-                <a href="tracking.html">
-                <button class="track-package-button button-secondary">
+            <a href="tracking.html">
+                <button class="track-package-button button-secondary js-track-package-button" data-id="${itemID}" data-order-id="${order.orderId}">
                     Track package
                 </button>
-                </a>
+            </a>
             </div>
         </div>`;
     });
@@ -95,5 +96,13 @@ document.querySelectorAll('.js-buy-again-button').forEach(buyAgain => {
         const Id = buyAgain.dataset.id;
         const Quantity = buyAgain.dataset.quantity;
         addItemToCart(Id,Quantity);
+    });
+});
+
+document.querySelectorAll('.js-track-package-button').forEach(trackOrder => {
+    trackOrder.addEventListener('click', () => {
+        const Id = trackOrder.dataset.id;
+        const OrderId = trackOrder.dataset.orderId;
+        updateTrackingHTML(OrderId, Id);
     });
 });
