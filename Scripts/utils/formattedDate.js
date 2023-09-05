@@ -15,3 +15,30 @@ export function getMonthAndDate(date) {
   const day = date.getDate();
   return `${month} ${day}`;
 };
+
+export function convertToDate(inputdate) {
+const dateString = inputdate;
+const currentYear = new Date().getFullYear();
+const date = new Date(`${dateString}, ${currentYear}`);
+const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' });
+return(formattedDate); 
+};
+
+export function compareDates(date) {
+  const inputDate = new Date(date);
+  const currentDate = new Date();
+  const timeDifference = inputDate - currentDate;
+  const daysRemaining = timeDifference / (1000 * 60 * 60 * 24);
+
+  if (daysRemaining < 0) {
+      return 5;
+  } else if (daysRemaining <= 0.3) {
+      return 4;
+  } else if (0.3 < daysRemaining <= 0.5) {
+    return 3;
+  } else if (0.5 < daysRemaining <= 0.75) {
+    return 2;
+  } else {
+    return 1;
+  }
+};

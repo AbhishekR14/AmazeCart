@@ -184,7 +184,15 @@ document.querySelectorAll('.js-delete-quantity-link').forEach((deleteLink) => {
         document.querySelector('.js-payment-details').innerHTML = cartItemPriceHTML;
         priceChanged();
         if (cart.length === 0){
-            document.querySelector('.js-orders-main').innerHTML ="No products in your cart."
+            document.querySelector('.js-orders-main').innerHTML =
+                `No products in your cart.
+                <br>
+                <a href="index.html">
+                    <button class="back-to-home-button button-primary">
+                        Go back home
+                    </button>
+                </a>
+                `
         };
         document.querySelector('.js-place-order-button').addEventListener('click', () => {
             if(cart.length > 0){
