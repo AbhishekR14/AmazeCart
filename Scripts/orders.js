@@ -1,7 +1,7 @@
 import { addItemToCart , currentItemListQuantity } from '../backendData/cartdata.js';
 import { products } from "../backendData/products.js";
 import { orders } from "../backendData/ordersdata.js";
-import { updateTrackingHTML } from '../backendData/trackingdata.js';
+import { updateTrackingHTML ,arrivingOnOrNot } from '../backendData/trackingdata.js';
 show_hide_orders_cart();
 
 document.querySelector('.js-cart-value').innerHTML = currentItemListQuantity();
@@ -56,7 +56,7 @@ orders.forEach(order => {
                     ${cartProducts.name}
                 </div>
                 <div class="product-delivery-date">
-                    Arriving on: ${item.arrivingDate}
+                    ${arrivingOnOrNot(item.arrivingDate)}: ${item.arrivingDate}
                 </div>
                 <div class="product-quantity">
                     Quantity: ${item.quantity}

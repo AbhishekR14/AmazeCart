@@ -31,7 +31,7 @@ export function updateTrackingHTML(orderId , itemId){
     });
     trackingHTML = 
     `<div class="delivery-date">
-    Arriving on ${selectedItem.arrivingDate}
+    ${arrivingOnOrNot(selectedItem.arrivingDate)} ${selectedItem.arrivingDate}
     </div>
     <div class="product-info">
     ${selectedProduct.name}
@@ -62,3 +62,12 @@ function progessBar(arrivingDate){
     const arrdate = convertToDate(arrivingDate);
     return compareDates(arrdate)
 }
+
+export function arrivingOnOrNot(arrivingDate){
+    const arrdate = convertToDate(arrivingDate)
+    if(compareDates(arrdate) === 5){
+        return "Delivered on"
+    }else{
+        return "Arriving on"
+    }
+};
