@@ -29,16 +29,16 @@ export function compareDates(date) {
   const currentDate = new Date();
   const timeDifference = inputDate - currentDate;
   const daysRemaining = timeDifference / (1000 * 60 * 60 * 24);
-
+  
   if (daysRemaining < 0) {
       return 5;
-  } else if (daysRemaining <= 0.3) {
+  } else if (daysRemaining <= 1.5) {
       return 4;
-  } else if (0.3 < daysRemaining <= 0.5) {
+  } else if (1.5 < daysRemaining && daysRemaining <= 3) {
     return 3;
-  } else if (0.5 < daysRemaining <= 0.75) {
+  } else if (3 < daysRemaining && daysRemaining <= 5) {
     return 2;
-  } else {
+  } else if (daysRemaining > 5){
     return 1;
   }
 };
