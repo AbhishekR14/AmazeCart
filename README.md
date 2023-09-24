@@ -1,7 +1,8 @@
-This is a practice project where i have cloned the Amazon Web Apllication using JavaScript, HTML and CSS
+OneStop Web Application is a functional interactive Web Store.
+OneStop is made using JavaScript, HTML and CSS
 
-This is still under development. Stay tuned to see the complete version
+[Click Here](https://abhishekr14.github.io/amazedcart/) to visit Amazed Cart
 
-[Click Here](https://abhishekr14.github.io/amazedcart/) to view the current progess
+Please play around, explore and find new bugs to help me make the application better
 
-[Note: You might get a warning on your browser saying "Deceptive site ahead" that is because of google detects this as an Amazon clone (which it is) hence the warning, please click on "Details" and then click on "visit this unsafe site." to view the project. Thanks! ]
+Contact :- aranjan0288@gmail.com
