@@ -53,7 +53,7 @@ main {
     }
     .product-actions {
         grid-column: auto;
-        margin-bottom: 70px;
+        margin-bottom: 30px;
     }
     .track-package-button {
         width: 100%;
@@ -61,6 +61,12 @@ main {
     }
     .order-details-grid {
         grid-template-columns: 1fr;
+        padding: 40px 25px 8px 25px;
+        border: 1px solid rgb(213, 217, 217);
+        border-top: none;
+        display: grid;
+        column-gap: 35px;
+        align-items: center;
     }
     .product-name {
         margin-bottom: 10px;
