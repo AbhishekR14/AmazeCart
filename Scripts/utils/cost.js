@@ -1,3 +1,3 @@
-export function costToTwoDecimals (cost){
-    return cost.toFixed(2);
-};
+export function costToTwoDecimals(cost) {
+  return cost.toFixed(2);
+}

@@ -1,336 +1,336 @@
-body{
-    margin:0px;
-    padding: 0px;
-    font-family: 'Roboto', sans-serif;
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Roboto", sans-serif;
 }
-main{
-    max-width: 1100px;
-    padding-left: 30px;
-    padding-right: 30px;
-    margin-top: 140px;
-    margin-bottom: 100px;
-    margin-left: auto;
-    margin-right: auto;
+main {
+  max-width: 1100px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: 140px;
+  margin-bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
-header{
-    display: flex;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    height: 60px;
-    position: fixed;
-    align-items: center;
-    justify-content: center;
-    padding: 0px 30px;
-    background-color: white;
+header {
+  display: flex;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 60px;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 30px;
+  background-color: white;
 }
-img{
-    overflow-clip-margin: content-box;
-    overflow: clip;
+img {
+  overflow-clip-margin: content-box;
+  overflow: clip;
 }
-.checkout-header-div{
-    display: flex;
-    width: 800px;
-    justify-content: center;
-    align-items: center;
-    font-size: 25px;
-    font-weight: 500;
+.checkout-header-div {
+  display: flex;
+  width: 800px;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: 500;
 }
-.lock-icon-div{
-    display: flex;
-    width: 150px;
-    align-items: center;
-    justify-content: end;
+.lock-icon-div {
+  display: flex;
+  width: 150px;
+  align-items: center;
+  justify-content: end;
 }
 .return-to-home-link {
-    color: rgb(0, 113, 133);
-    font-size: 23px;
-    text-decoration: none;
-    cursor: pointer;
+  color: rgb(0, 113, 133);
+  font-size: 23px;
+  text-decoration: none;
+  cursor: pointer;
 }
-.back-to-home-button{
-    margin-top: 10px;
-    color: rgb(33, 33, 33);
-    background-color: rgb(255, 216, 20);
-    border: 1px solid rgb(252, 210, 0);
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
-    font-size: 15px;
-    width: 140px;
-    height: 36px;
+.back-to-home-button {
+  margin-top: 10px;
+  color: rgb(33, 33, 33);
+  background-color: rgb(255, 216, 20);
+  border: 1px solid rgb(252, 210, 0);
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+  font-size: 15px;
+  width: 140px;
+  height: 36px;
 }
-@media (min-width: 601px) and (max-width: 2500px){
-    .amazedcart-mobile-logo{
-        display: none;
-    }
-    .amazedcart-logo{
-        display: flex;
-        width: 150px;
-    }
-    .amazedcart-pc-logo{
-        margin: none;
-        height: 40px;
-        width: 150px;
-        margin-top: 6px;
-        margin-bottom: 5px;
-        padding-top: 7px;
-        padding-bottom: 7px;
-        border-color: white;
-        border-style: solid;
-        border-width: 1px;
-    }
-    .amazedcart-pc-logo img{
-        width: 100%;
-        margin-top: 8px;
-    }
-    .amazedcart-pc-logo:hover{
-        cursor: pointer;
-        border-color: black;
-        border-style: solid;
-        border-width: 1px;
-        border-radius: 4px;
-    }
-}
-@media (min-width: 1000px) and (max-width: 2500px){
-    .orders-grid{
-        display: grid;
-        grid-template-columns: 1fr 350px;
-        column-gap: 12px;
-        align-items: start;
-    }
-    .order-details-grid{
-        display: grid;
-        grid-template-columns: 100px 1fr 1fr;
-        column-gap: 25px;
-    }
-    .payment-details{
-        border: 1px solid rgb(222, 222, 222);
-        border-radius: 4px;
-        padding: 18px;
-        padding-bottom: 5px;
-    }
-}
-@media (min-width: 600px) and (max-width: 1000px){
-    .page-title {
-        font-weight: 700;
-        font-size: 22px;
-        margin-bottom: 18px;
-        align-items: center;
-        width: 350px;
-    }
-    .orders-grid{
-        display: grid;
-        grid-template-columns: 1fr;
-        column-gap: 12px;
-        align-items: center;
-    }
-    .payment-details{
-        grid-row: 1;
-        margin-bottom: 12px;
-        padding-bottom: 5px;
-        border: 1px solid rgb(222, 222, 222);
-        border-radius: 4px;
-        padding: 18px;
-    }
-    main{
-        max-width: 500px;
-    }
-    .order-details-grid{
-        display: grid;
-        grid-template-columns: 100px 1fr;
-        row-gap: 30px;
-    }
-    .delivery-options {
-        grid-column: 1 / span 2;
-    }
-    .details-div{
-        padding-left: 10px;
-    }
-}
-@media (min-width: 0px) and (max-width: 600px){
-    .amazedcart-pc-logo{
-        display: none;
-    }
-    .amazedcart-mobile-logo{
-        margin: none;
-        height: 50px;
-        width: 40px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        border-color: white;
-        border-style: solid;
-        border-width: 1px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .amazedcart-mobile-logo img{
-        height: 85%;
-    }
-    .amazedcart-mobile-logo:hover{
-        cursor: pointer;
-        border-color: black;
-        border-style: solid;
-        border-width: 1px;
-        border-radius: 4px;
-    }
-    .amazedcart-logo{
-        display: flex;
-        flex: 1;
-        justify-content: center;
-        max-width: 60px;
-    }
-    .checkout-header-div{
-        font-size: 20px;
-    }
-    .return-to-home-link {
-        font-size: 18px;
-    }
-    .page-title {
-        font-weight: 700;
-        font-size: 22px;
-        margin-bottom: 18px;
-    }
-    .payment-details{
-        grid-row: 1;
-        margin-bottom: 12px;
-        padding-bottom: 5px;
-        border: 1px solid rgb(222, 222, 222);
-        border-radius: 4px;
-        padding: 18px;
-    }
-    .orders-grid{
-        display: grid;
-        grid-template-columns: 1fr;
-        column-gap: 12px;
-        align-items: center;
-    }
-    main{
-        max-width: 500px;
-    }
-    .order-details-grid{
-        display: grid;
-        grid-template-columns: 100px 1fr;
-        row-gap: 30px;
-    }
-    .delivery-options {
-        grid-column: 1 / span 2;
-    }
-    .details-div{
-        padding-left: 10px;
-    }
-}
-.orders-list{
-    border-color: rgb(199, 198, 198);
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 4px;
-    padding: 15px;
-    margin-bottom: 12px;
-}
-.delivery-date{
-    color: rgb(0, 118, 0);
-    font-weight: 700;
-    font-size: 19px;
-    margin-top: 5px;
-    margin-bottom: 22px;
-}
-.product-image {
-    max-width: 100%;
-    max-height: 120px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.product-name {
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-.product-price {
-    color: rgb(177, 39, 4);
-    font-weight: 700;
+@media (min-width: 601px) and (max-width: 2500px) {
+  .amazedcart-mobile-logo {
+    display: none;
+  }
+  .amazedcart-logo {
+    display: flex;
+    width: 150px;
+  }
+  .amazedcart-pc-logo {
+    margin: none;
+    height: 40px;
+    width: 150px;
+    margin-top: 6px;
     margin-bottom: 5px;
-}
-.product-quantity .link-primary {
-    margin-left: 3px;
-}
-.link-primary {
-    color: rgb(1, 124, 182);
-    cursor: pointer;
-}
-.delivery-options-title {
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-.delivery-option {
-    display: grid;
-    grid-template-columns: 24px 1fr;
-    margin-bottom: 12px;
-    cursor: pointer;
-}
-.delivery-option-input {
-    margin-left: 0px;
-    cursor: pointer;
-}
-.delivery-option-date {
-    color: rgb(0, 118, 0);
-    font-weight: 500;
-    margin-bottom: 3px;
-}
-.delivery-option-price {
-    color: rgb(120, 120, 120);
-    font-size: 15px;
-}
-.payment-summary-title {
-    font-weight: 700;
-    font-size: 18px;
-    margin-bottom: 12px;
-}
-.payment-summary-row {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    font-size: 15px;
-    margin-bottom: 9px;
-}
-.total-row {
-    color: rgb(177, 39, 4);
-    font-weight: 700;
-    font-size: 18px;
-    border-top: 1px solid rgb(222, 222, 222);
-    padding-top: 18px;
-}
-.place-order-button {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+  }
+  .amazedcart-pc-logo img {
     width: 100%;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    border-radius: 8px;
-    margin-top: 11px;
-    margin-bottom: 15px;
-}
-.button-primary {
-    color: rgb(33, 33, 33);
-    background-color: rgb(255, 216, 20);
-    border: 1px solid rgb(252, 210, 0);
-    border-radius: 8px;
+    margin-top: 8px;
+  }
+  .amazedcart-pc-logo:hover {
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+  }
 }
-.subtotal-row .payment-summary-money {
-    border-top: 1px solid rgb(222, 222, 222);
+@media (min-width: 1000px) and (max-width: 2500px) {
+  .orders-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    column-gap: 12px;
+    align-items: start;
+  }
+  .order-details-grid {
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr;
+    column-gap: 25px;
+  }
+  .payment-details {
+    border: 1px solid rgb(222, 222, 222);
+    border-radius: 4px;
+    padding: 18px;
+    padding-bottom: 5px;
+  }
 }
-.page-title {
+@media (min-width: 600px) and (max-width: 1000px) {
+  .page-title {
     font-weight: 700;
     font-size: 22px;
     margin-bottom: 18px;
+    align-items: center;
+    width: 350px;
+  }
+  .orders-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 12px;
+    align-items: center;
+  }
+  .payment-details {
+    grid-row: 1;
+    margin-bottom: 12px;
+    padding-bottom: 5px;
+    border: 1px solid rgb(222, 222, 222);
+    border-radius: 4px;
+    padding: 18px;
+  }
+  main {
+    max-width: 500px;
+  }
+  .order-details-grid {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    row-gap: 30px;
+  }
+  .delivery-options {
+    grid-column: 1 / span 2;
+  }
+  .details-div {
+    padding-left: 10px;
+  }
 }
-.update-cart-quantity{
-    margin: 0px;
+@media (min-width: 0px) and (max-width: 600px) {
+  .amazedcart-pc-logo {
+    display: none;
+  }
+  .amazedcart-mobile-logo {
+    margin: none;
+    height: 50px;
+    width: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .amazedcart-mobile-logo img {
+    height: 85%;
+  }
+  .amazedcart-mobile-logo:hover {
+    cursor: pointer;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+  }
+  .amazedcart-logo {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    max-width: 60px;
+  }
+  .checkout-header-div {
+    font-size: 20px;
+  }
+  .return-to-home-link {
+    font-size: 18px;
+  }
+  .page-title {
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+  .payment-details {
+    grid-row: 1;
+    margin-bottom: 12px;
+    padding-bottom: 5px;
+    border: 1px solid rgb(222, 222, 222);
+    border-radius: 4px;
+    padding: 18px;
+  }
+  .orders-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 12px;
+    align-items: center;
+  }
+  main {
+    max-width: 500px;
+  }
+  .order-details-grid {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    row-gap: 30px;
+  }
+  .delivery-options {
+    grid-column: 1 / span 2;
+  }
+  .details-div {
+    padding-left: 10px;
+  }
 }
-.hide-class{
-    display:none;
+.orders-list {
+  border-color: rgb(199, 198, 198);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 12px;
 }
-.update-quantity-text-box{
-    width: 25px;
-    padding: 0px;
-    height: 15px;
+.delivery-date {
+  color: rgb(0, 118, 0);
+  font-weight: 700;
+  font-size: 19px;
+  margin-top: 5px;
+  margin-bottom: 22px;
+}
+.product-image {
+  max-width: 100%;
+  max-height: 120px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.product-name {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.product-price {
+  color: rgb(177, 39, 4);
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.product-quantity .link-primary {
+  margin-left: 3px;
+}
+.link-primary {
+  color: rgb(1, 124, 182);
+  cursor: pointer;
+}
+.delivery-options-title {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.delivery-option {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.delivery-option-input {
+  margin-left: 0px;
+  cursor: pointer;
+}
+.delivery-option-date {
+  color: rgb(0, 118, 0);
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.delivery-option-price {
+  color: rgb(120, 120, 120);
+  font-size: 15px;
+}
+.payment-summary-title {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+.payment-summary-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  font-size: 15px;
+  margin-bottom: 9px;
+}
+.total-row {
+  color: rgb(177, 39, 4);
+  font-weight: 700;
+  font-size: 18px;
+  border-top: 1px solid rgb(222, 222, 222);
+  padding-top: 18px;
+}
+.place-order-button {
+  width: 100%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 8px;
+  margin-top: 11px;
+  margin-bottom: 15px;
+}
+.button-primary {
+  color: rgb(33, 33, 33);
+  background-color: rgb(255, 216, 20);
+  border: 1px solid rgb(252, 210, 0);
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+}
+.subtotal-row .payment-summary-money {
+  border-top: 1px solid rgb(222, 222, 222);
+}
+.page-title {
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+.update-cart-quantity {
+  margin: 0px;
+}
+.hide-class {
+  display: none;
+}
+.update-quantity-text-box {
+  width: 25px;
+  padding: 0px;
+  height: 15px;
 }

@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Cart</title>
-        <!-- For responsive design -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--Fonts-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-        <!--Custom Stylesheets-->
-        <link rel="stylesheet" href="Styles/cart.css">
-    </head>
-    <body>
-        <header>
-            <div class="amazedcart-logo">
-                <a href="index.html" class="amazedcart-pc-logo">
-                    <img src="Pictures/amazedcart-logo.png">
-                </a>
-                <a href="index.html" class="amazedcart-mobile-logo">
-                    <img src="Pictures/amazedcart-mobile-logo.png">
-                </a>                
-            </div>
-            <div class="checkout-header-div">
-                Checkout (<a class="return-to-home-link js-return-to-home-link" href="index.html"></a>)
-            </div>
-            <div class="lock-icon-div">
-                <img src="Pictures/checkout-lock-icon.png">
-            </div>
-        </header>
-        <main class="js-orders-main">
-            <div class="page-title">Review your order</div>
-            <div class="orders-grid">
-                <div class="orders-lists js-orders-lists">
-                </div>
-                <div class="payment-details js-payment-details"></div>
-            </div>
-        </main>
-        <script type="module" src="Scripts/cart.js"></script>
-    </body>
+  <head>
+    <title>Cart</title>
+    <!-- For responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!--Custom Stylesheets-->
+    <link rel="stylesheet" href="Styles/cart.css" />
+  </head>
+  <body>
+    <header>
+      <div class="amazedcart-logo">
+        <a href="index.html" class="amazedcart-pc-logo">
+          <img src="Pictures/amazedcart-logo.png" />
+        </a>
+        <a href="index.html" class="amazedcart-mobile-logo">
+          <img src="Pictures/amazedcart-mobile-logo.png" />
+        </a>
+      </div>
+      <div class="checkout-header-div">
+        Checkout (<a
+          class="return-to-home-link js-return-to-home-link"
+          href="index.html"
+        ></a
+        >)
+      </div>
+      <div class="lock-icon-div">
+        <img src="Pictures/checkout-lock-icon.png" />
+      </div>
+    </header>
+    <main class="js-orders-main">
+      <div class="page-title">Review your order</div>
+      <div class="orders-grid">
+        <div class="orders-lists js-orders-lists"></div>
+        <div class="payment-details js-payment-details"></div>
+      </div>
+    </main>
+    <script type="module" src="Scripts/cart.js"></script>
+  </body>
 </html>

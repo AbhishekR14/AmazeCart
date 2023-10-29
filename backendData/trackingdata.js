@@ -1,36 +1,35 @@
 import { orders } from "../backendData/ordersdata.js";
-import { products } from '../backendData/products.js';
-import { convertToDate , compareDates } from "../Scripts/utils/formattedDate.js";
+import { products } from "../backendData/products.js";
+import { convertToDate, compareDates } from "../Scripts/utils/formattedDate.js";
 
-export let trackingHTML = localStorage.getItem('trackingHTML');
-if(!trackingHTML){
-    trackingHTML = ''
-};
-function saveTrackingHTMLToLocalStorage(){
-    localStorage.setItem('trackingHTML', trackingHTML);
-};
-export function updateTrackingHTML(orderId , itemId){
-    trackingHTML='';
-    let selectedItem;
-    let selectedOrer;
-    let selectedProduct;
-    orders.forEach(order => {
-        if(order.orderId === orderId){
-            selectedOrer = order;
-            order.items.forEach(item => {
-                if(item.id === itemId){
-                    selectedItem = item;
-                    products.forEach(product => {
-                        if(product.id === itemId){
-                            selectedProduct = product;
-                        }
-                    })
-                }
-            })
-        }  
-    });
-    trackingHTML = 
-    `<div class="delivery-date">
+export let trackingHTML = localStorage.getItem("trackingHTML");
+if (!trackingHTML) {
+  trackingHTML = "";
+}
+function saveTrackingHTMLToLocalStorage() {
+  localStorage.setItem("trackingHTML", trackingHTML);
+}
+export function updateTrackingHTML(orderId, itemId) {
+  trackingHTML = "";
+  let selectedItem;
+  let selectedOrder;
+  let selectedProduct;
+  orders.forEach((order) => {
+    if (order.orderId === orderId) {
+      selectedOrder = order;
+      order.items.forEach((item) => {
+        if (item.id === itemId) {
+          selectedItem = item;
+          products.forEach((product) => {
+            if (product.id === itemId) {
+              selectedProduct = product;
+            }
+          });
+        }
+      });
+    }
+  });
+  trackingHTML = `<div class="delivery-date">
     ${arrivingOnOrNot(selectedItem.arrivingDate)} ${selectedItem.arrivingDate}
     </div>
     <div class="product-info">
@@ -52,22 +51,22 @@ export function updateTrackingHTML(orderId , itemId){
     </div>
     </div>
     <div class="progress-bar-container">
-    <div class="progress-bar${progessBar(selectedItem.arrivingDate)}"></div>
-    </div>`
-    saveTrackingHTMLToLocalStorage()
-};
-
-function progessBar(arrivingDate){
-    //progress-bar1 , progress-bar2 , progress-bar3 determines when the order is placed
-    const arrdate = convertToDate(arrivingDate);
-    return compareDates(arrdate)
+    <div class="progress-bar${progressBar(selectedItem.arrivingDate)}"></div>
+    </div>`;
+  saveTrackingHTMLToLocalStorage();
 }
 
-export function arrivingOnOrNot(arrivingDate){
-    const arrdate = convertToDate(arrivingDate)
-    if(compareDates(arrdate) === 5){
-        return "Delivered on"
-    }else{
-        return "Arriving on"
-    }
-};
+function progressBar(arrivingDate) {
+  //progress-bar1 , progress-bar2 , progress-bar3 determines when the order is placed
+  const arrdate = convertToDate(arrivingDate);
+  return compareDates(arrdate);
+}
+
+export function arrivingOnOrNot(arrivingDate) {
+  const arrdate = convertToDate(arrivingDate);
+  if (compareDates(arrdate) === 5) {
+    return "Delivered on";
+  } else {
+    return "Arriving on";
+  }
+}

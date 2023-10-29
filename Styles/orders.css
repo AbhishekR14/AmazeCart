@@ -1,236 +1,238 @@
 main {
-    max-width: 850px;
-    margin-top: 90px;
-    margin-bottom: 100px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-left: auto;
-    margin-right: auto;
+  max-width: 850px;
+  margin-top: 90px;
+  margin-bottom: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.back-to-home-button{
-    margin-top: 10px;
-    color: rgb(33, 33, 33);
-    background-color: rgb(255, 216, 20);
-    border: 1px solid rgb(252, 210, 0);
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+.back-to-home-button {
+  margin-top: 10px;
+  color: rgb(33, 33, 33);
+  background-color: rgb(255, 216, 20);
+  border: 1px solid rgb(252, 210, 0);
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+  font-size: 15px;
+  width: 140px;
+  height: 36px;
+}
+@media (min-width: 0px) and (max-width: 600px) {
+  .orders-container-header {
+    background-color: rgb(240, 242, 242);
+    border: 1px solid rgb(213, 217, 217);
+    display: block;
+    align-items: center;
+    padding: 15px;
+    line-height: 23px;
+    margin-top: 15px;
+  }
+  .orders-container-left {
+    display: block;
+  }
+  .order-date,
+  .order-cost,
+  .order-id {
+    display: flex;
+  }
+  .order-header-title {
+    margin-right: 5px;
+  }
+  .product-image-container {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .product-image-container img {
+    max-width: 150px;
+    max-height: 150px;
+  }
+  .buy-again-button {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .product-actions {
+    grid-column: auto;
+    margin-bottom: 30px;
+  }
+  .track-package-button {
+    width: 100%;
+    padding: 12px;
+  }
+  .order-details-grid {
+    grid-template-columns: 1fr;
+    padding: 40px 25px 8px 25px;
+    border: 1px solid rgb(213, 217, 217);
+    border-top: none;
+    display: grid;
+    column-gap: 35px;
+    align-items: center;
+  }
+  .product-name {
+    margin-bottom: 10px;
+  }
+  .product-quantity {
+    margin-bottom: 15px;
+  }
+}
+@media (min-width: 600px) and (max-width: 800px) {
+  .buy-again-button {
+    margin-bottom: 10px;
+  }
+  .product-actions {
+    grid-column: 2;
+    margin-bottom: 30px;
+  }
+  .track-package-button {
+    width: 140px;
+  }
+  .order-details-grid {
+    grid-template-columns: 110px 1fr;
+    row-gap: 0;
+    padding: 40px 25px 8px 25px;
+    border: 1px solid rgb(213, 217, 217);
+    border-top: none;
+    display: grid;
+    column-gap: 35px;
+    align-items: center;
+  }
+  .track-package-button {
+    width: 140px;
+  }
+}
+@media (min-width: 801px) and (max-width: 2500px) {
+  .order-details-grid {
+    padding: 40px 25px;
+    border: 1px solid rgb(213, 217, 217);
+    border-top: none;
+    display: grid;
+    grid-template-columns: 110px 1fr 220px;
+    column-gap: 35px;
+    row-gap: 60px;
+    align-items: center;
+  }
+  .track-package-button {
+    width: 100%;
+  }
+}
+@media (min-width: 601px) and (max-width: 2500px) {
+  .orders-container-header {
+    background-color: rgb(240, 242, 242);
+    border: 1px solid rgb(213, 217, 217);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 25px;
+    margin-top: 15px;
+  }
+  .orders-container-left {
+    display: flex;
+    flex-shrink: 0;
+  }
+  .order-date,
+  .order-cost {
+    margin-right: 45px;
+  }
+  .product-image-container {
+    text-align: center;
+  }
+
+  .product-image-container img {
+    max-width: 110px;
+    max-height: 110px;
+  }
+  .product-name {
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .buy-again-button {
     font-size: 15px;
     width: 140px;
     height: 36px;
-}
-@media (min-width: 0px) and (max-width: 600px){
-    .orders-container-header{
-        background-color: rgb(240, 242, 242);
-        border: 1px solid rgb(213, 217, 217);
-        display: block;
-        align-items: center;
-        padding: 15px;
-        line-height: 23px;
-        margin-top: 15px;
-    }
-    .orders-container-left{
-        display: block;
-    }
-    .order-date , .order-cost , .order-id {
-        display: flex;
-    }
-    .order-header-title{
-        margin-right: 5px;
-    }
-    .product-image-container {
-        text-align: center;
-        margin-bottom: 25px;
-      }
-    
-      .product-image-container img {
-        max-width: 150px;
-        max-height: 150px;
-      }
-    .buy-again-button {
-        width: 100%;
-        margin-bottom: 15px;
-    }
-    .product-actions {
-        grid-column: auto;
-        margin-bottom: 30px;
-    }
-    .track-package-button {
-        width: 100%;
-        padding: 12px;
-    }
-    .order-details-grid {
-        grid-template-columns: 1fr;
-        padding: 40px 25px 8px 25px;
-        border: 1px solid rgb(213, 217, 217);
-        border-top: none;
-        display: grid;
-        column-gap: 35px;
-        align-items: center;
-    }
-    .product-name {
-        margin-bottom: 10px;
-      }
-      .product-quantity {
-        margin-bottom: 15px;
-      }
-}
-@media (min-width: 600px) and (max-width: 800px){
-    .buy-again-button {
-        margin-bottom: 10px;
-    }
-    .product-actions {
-        grid-column: 2;
-        margin-bottom: 30px;
-    }
-    .track-package-button {
-        width: 140px;
-    }
-    .order-details-grid {
-        grid-template-columns: 110px 1fr;
-        row-gap: 0;
-        padding: 40px 25px 8px 25px;
-        border: 1px solid rgb(213, 217, 217);
-        border-top: none;
-        display: grid;
-        column-gap: 35px;
-        align-items: center;
-    }
-    .track-package-button {
-        width: 140px;
-    }
-}
-@media (min-width: 801px) and (max-width: 2500px){
-    .order-details-grid {
-        padding: 40px 25px;
-        border: 1px solid rgb(213, 217, 217);
-        border-top: none;
-        display: grid;
-        grid-template-columns: 110px 1fr 220px;
-        column-gap: 35px;
-        row-gap: 60px;
-        align-items: center;
-    }
-    .track-package-button {
-        width: 100%;
-    } 
-}
-@media (min-width: 601px) and (max-width: 2500px){
-    .orders-container-header{
-        background-color: rgb(240, 242, 242);
-        border: 1px solid rgb(213, 217, 217);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px 25px;
-        margin-top: 15px;
-    }
-    .orders-container-left{
-        display: flex;
-        flex-shrink: 0;
-    }
-    .order-date , .order-cost{
-        margin-right: 45px;
-    }
-    .product-image-container {
-        text-align: center;
-      }
-      
-      .product-image-container img {
-        max-width: 110px;
-        max-height: 110px;
-      }
-      .product-name {
-        font-weight: 700;
-        margin-bottom: 5px;
-      }
-    .buy-again-button {
-        font-size: 15px;
-        width: 140px;
-        height: 36px;
-        border-radius: 8px;
-      
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .product-actions {
-        align-self: start;
-    }
-    .track-package-button {
-        font-size: 15px;
-        padding: 8px;
-    }
-    .product-quantity {
-        margin-bottom: 8px;
-    }
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .product-actions {
+    align-self: start;
+  }
+  .track-package-button {
+    font-size: 15px;
+    padding: 8px;
+  }
+  .product-quantity {
+    margin-bottom: 8px;
+  }
 }
 .limit-to-2-lines {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .page-title {
-    font-weight: 700;
-    font-size: 26px;
-    margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 26px;
+  margin-bottom: 25px;
 }
-.order-header-title{
-    font-weight: 500;
+.order-header-title {
+  font-weight: 500;
 }
 .product-delivery-date {
-    margin-bottom: 3px;
+  margin-bottom: 3px;
 }
 .button-primary {
-    color: rgb(33, 33, 33);
-    background-color: rgb(255, 216, 20);
-    border: 1px solid rgb(252, 210, 0);
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+  color: rgb(33, 33, 33);
+  background-color: rgb(255, 216, 20);
+  border: 1px solid rgb(252, 210, 0);
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
 }
 .button-primary:hover {
-    background-color: rgb(247, 202, 0);
-    border: 1px solid rgb(242, 194, 0);
+  background-color: rgb(247, 202, 0);
+  border: 1px solid rgb(242, 194, 0);
 }
 .button-primary:active {
-    background: rgb(255, 216, 20);
-    border-color: rgb(252, 210, 0);
-    box-shadow: none;
+  background: rgb(255, 216, 20);
+  border-color: rgb(252, 210, 0);
+  box-shadow: none;
 }
 .buy-again-icon {
-    width: 25px;
-    margin-right: 15px;
+  width: 25px;
+  margin-right: 15px;
 }
 .button-secondary {
-    color: rgb(33, 33, 33);
-    background: white;
-    border: 1px solid rgb(213, 217, 217);
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+  color: rgb(33, 33, 33);
+  background: white;
+  border: 1px solid rgb(213, 217, 217);
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
 }
 .button-secondary:hover {
-    background-color: rgb(247, 250, 250);
+  background-color: rgb(247, 250, 250);
 }
 .button-secondary:active {
-    background-color: rgb(237, 253, 255);
-    box-shadow: none;
+  background-color: rgb(237, 253, 255);
+  box-shadow: none;
 }
 .button-secondary {
-    color: rgb(33, 33, 33);
-    background: white;
-    border: 1px solid rgb(213, 217, 217);
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+  color: rgb(33, 33, 33);
+  background: white;
+  border: 1px solid rgb(213, 217, 217);
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
 }
 .button-secondary:hover {
-    background-color: rgb(247, 250, 250);
+  background-color: rgb(247, 250, 250);
 }
 .button-secondary:active {
-    background-color: rgb(237, 253, 255);
-    box-shadow: none;
+  background-color: rgb(237, 253, 255);
+  box-shadow: none;
 }
-
